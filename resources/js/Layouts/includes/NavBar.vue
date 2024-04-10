@@ -51,7 +51,6 @@ const { oInstitucion } = useInstitucion();
                 </div>
                 <div class="acciones">
                     <v-app-bar-nav-icon
-                        color="grey-darken-3"
                         @click="toggleDrawer(!drawer)"
                     ></v-app-bar-nav-icon>
                 </div>

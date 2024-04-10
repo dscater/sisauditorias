@@ -78,14 +78,13 @@ const scrollActive = () => {
         :permanent="!mobile"
         :temporary="mobile"
         v-model="drawer"
-        class="border-0 elevation-2 __sidebar"
+        class="border-0 elevation-2 __sidebar bg-secundario"
         :width="width"
         id="sidebar"
-        color="grey-darken-4"
     >
         <v-sheet>
             <div
-                class="w-100 d-flex flex-column align-center elevation-1 bg-yellow-lighten-1 pa-2 __info_usuario"
+                class="w-100 d-flex flex-column align-center elevation-1 bg-secundario-hover pa-2 __info_usuario"
             >
                 <v-avatar
                     class="mb-1"
@@ -136,7 +135,11 @@ const scrollActive = () => {
                 class="text-caption"
                 v-if="
                     oUser.permisos.includes('usuarios.index') ||
-                    oUser.permisos.includes('documentos.index')
+                    oUser.permisos.includes('tipo_trabajos.index') ||
+                    oUser.permisos.includes('trabajo_auditorias.index') ||
+                    oUser.permisos.includes('etapa_auditorias.index') ||
+                    oUser.permisos.includes('papel_trabajos.index') ||
+                    oUser.permisos.includes('institucions.index')
                 "
             >
                 <span v-if="rail && !mobile" class="text-center d-block"
@@ -145,19 +148,77 @@ const scrollActive = () => {
                 <span v-else>ADMINISTRACIÓN</span></v-list-item
             >
             <v-list-item
-                :class="[route_current == 'unidad_areas.index' ? 'active' : '']"
-                v-if="oUser.permisos.includes('unidad_areas.index')"
-                prepend-icon="mdi-view-list"
-                @click="cambiarUrl(route('unidad_areas.index'))"
+                :class="[
+                    route_current == 'tipo_trabajos.index' ? 'active' : '',
+                ]"
+                v-if="oUser.permisos.includes('tipo_trabajos.index')"
+                prepend-icon="mdi-clipboard-list"
+                @click="cambiarUrl(route('tipo_trabajos.index'))"
                 link
             >
-                <v-list-item-title>Áreas</v-list-item-title>
+                <v-list-item-title
+                    >Tipos de Trabajos de Auditoría</v-list-item-title
+                >
                 <v-tooltip
                     v-if="rail && !mobile"
                     color="white"
                     activator="parent"
                     location="end"
-                    >Áreas</v-tooltip
+                    >Tipos de Trabajos de Auditoría</v-tooltip
+                >
+            </v-list-item>
+            <v-list-item
+                :class="[
+                    route_current == 'trabajo_auditorias.index' ? 'active' : '',
+                ]"
+                v-if="oUser.permisos.includes('trabajo_auditorias.index')"
+                prepend-icon="mdi-folder-multiple"
+                @click="cambiarUrl(route('trabajo_auditorias.index'))"
+                link
+            >
+                <v-list-item-title>Trabajos de Auditoría</v-list-item-title>
+                <v-tooltip
+                    v-if="rail && !mobile"
+                    color="white"
+                    activator="parent"
+                    location="end"
+                    >Trabajos de Auditoría</v-tooltip
+                >
+            </v-list-item>
+            <v-list-item
+                :class="[
+                    route_current == 'etapa_auditorias.index' ? 'active' : '',
+                ]"
+                v-if="oUser.permisos.includes('etapa_auditorias.index')"
+                prepend-icon="mdi-view-list"
+                @click="cambiarUrl(route('etapa_auditorias.index'))"
+                link
+            >
+                <v-list-item-title>Etapas de la Auditoría</v-list-item-title>
+                <v-tooltip
+                    v-if="rail && !mobile"
+                    color="white"
+                    activator="parent"
+                    location="end"
+                    >Etapas de la Auditoría</v-tooltip
+                >
+            </v-list-item>
+            <v-list-item
+                :class="[
+                    route_current == 'papel_trabajos.index' ? 'active' : '',
+                ]"
+                v-if="oUser.permisos.includes('papel_trabajos.index')"
+                prepend-icon="mdi-folder-file"
+                @click="cambiarUrl(route('papel_trabajos.index'))"
+                link
+            >
+                <v-list-item-title>Papeles de trabajo</v-list-item-title>
+                <v-tooltip
+                    v-if="rail && !mobile"
+                    color="white"
+                    activator="parent"
+                    location="end"
+                    >Papeles de trabajo</v-tooltip
                 >
             </v-list-item>
             <v-list-item

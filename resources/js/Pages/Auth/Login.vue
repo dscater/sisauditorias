@@ -47,39 +47,19 @@ onMounted(() => {
     <Head title="Login" />
     <v-container class="ma-0">
         <v-row align="center" justify="center">
-            <v-col cols="12" sm="8" md="6" xl="6">
+            <v-col cols="12" sm="8" md="4" xl="3">
                 <v-card class="elevation-6 mt-10">
                     <v-row>
-                        <v-col
-                            cols="12"
-                            xs="12"
-                            sm="12"
-                            md="6"
-                            xl="6"
-                            class="pa-0 hidden-sm-and-down"
-                        >
-                            <v-img
-                                class="h-100 w-100"
-                                lazy
-                                cover
-                                :src="url_asset + '/imgs/lateral.jpg'"
-                            ></v-img>
-                        </v-col>
-                        <v-col
-                            cols="12"
-                            sm="12"
-                            md="6"
-                            xl="6"
-                        >
-                            <v-card-text>
+                        <v-col cols="12">
+                            <v-card-text class="pb-0">
                                 <v-img
                                     :src="oInstitucion.url_logo"
                                     class="w-50 mx-auto"
                                 ></v-img>
                             </v-card-text>
-                            <v-card-title class="">
+                            <v-card-title class="pt-0 pb-0">
                                 <h4 class="text-center">
-                                    {{ oInstitucion.nombre }}
+                                    {{ oInstitucion.institucion }}
                                 </h4>
                             </v-card-title>
                             <form @submit.prevent="submit">
@@ -175,10 +155,9 @@ onMounted(() => {
                                                 v-model="form.password"
                                             ></v-text-field>
                                             <v-btn
-                                                class="mt-4"
+                                                class="mt-4 bg-principal"
                                                 elevation="4"
                                                 rounded="0"
-                                                color="yellow-lighten-1"
                                                 dark
                                                 block
                                                 type="submit"
@@ -198,7 +177,7 @@ onMounted(() => {
 
 <style scoped>
 .v-container {
-    background-color: var(--dark);
+    background-color: var(--principal);
     display: flex;
     justify-content: center;
     align-items: center;

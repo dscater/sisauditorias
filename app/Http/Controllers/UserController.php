@@ -22,35 +22,25 @@ class UserController extends Controller
             "usuarios.edit",
             "usuarios.destroy",
 
-            "empresas.index",
-            "empresas.create",
-            "empresas.edit",
-            "empresas.destroy",
+            "tipo_trabajos.index",
+            "tipo_trabajos.create",
+            "tipo_trabajos.edit",
+            "tipo_trabajos.destroy",
 
-            "biometricos.index",
-            "biometricos.create",
-            "biometricos.edit",
-            "biometricos.destroy",
+            "trabajo_auditorias.index",
+            "trabajo_auditorias.create",
+            "trabajo_auditorias.edit",
+            "trabajo_auditorias.destroy",
 
-            "repuestos.index",
-            "repuestos.create",
-            "repuestos.edit",
-            "repuestos.destroy",
+            "etapa_auditorias.index",
+            "etapa_auditorias.create",
+            "etapa_auditorias.edit",
+            "etapa_auditorias.destroy",
 
-            "solicitud_mantenimientos.index",
-            "solicitud_mantenimientos.create",
-            "solicitud_mantenimientos.edit",
-            "solicitud_mantenimientos.destroy",
-
-            "servicios.index",
-            "servicios.create",
-            "servicios.edit",
-            "servicios.destroy",
-
-            "documentos.index",
-            "documentos.create",
-            "documentos.edit",
-            "documentos.destroy",
+            "papel_trabajos.index",
+            "papel_trabajos.create",
+            "papel_trabajos.edit",
+            "papel_trabajos.destroy",
 
             "institucions.index",
             "institucions.create",
@@ -58,79 +48,9 @@ class UserController extends Controller
             "institucions.destroy",
 
             "reportes.usuarios",
-            "reportes.solicitud_mantenimiento",
-            "reportes.servicio",
-            "reportes.equipos",
-            "reportes.historial_mantenimientos"
         ],
-        "JEFE DE ÁREA" => [
-            "solicitud_mantenimientos.index",
-            "solicitud_mantenimientos.create",
-            "solicitud_mantenimientos.edit",
-            "solicitud_mantenimientos.destroy",
-
-            "servicios.index",
-            "servicios.create",
-            "servicios.edit",
-            "servicios.destroy",
-
-            "reportes.solicitud_mantenimiento",
-            "reportes.servicio",
-            "reportes.equipos",
-            "reportes.historial_mantenimientos"
-        ],
-        "TÉCNICO" => [
-            "unidad_areas.index",
-            "unidad_areas.create",
-            "unidad_areas.edit",
-            "unidad_areas.destroy",
-
-            "empresas.index",
-            "empresas.create",
-            "empresas.edit",
-            "empresas.destroy",
-
-            "biometricos.index",
-            "biometricos.create",
-            "biometricos.edit",
-            "biometricos.destroy",
-
-            "repuestos.index",
-            "repuestos.create",
-            "repuestos.edit",
-            "repuestos.destroy",
-
-            "solicitud_mantenimientos.index",
-            "solicitud_mantenimientos.create",
-            "solicitud_mantenimientos.edit",
-            "solicitud_mantenimientos.destroy",
-
-            "servicios.index",
-            "servicios.create",
-            "servicios.edit",
-            "servicios.destroy",
-
-            "documentos.index",
-            "documentos.create",
-            "documentos.edit",
-            "documentos.destroy",
-
-            "reportes.solicitud_mantenimiento",
-            "reportes.servicio",
-            "reportes.equipos",
-            "reportes.historial_mantenimientos"
-        ],
-        "DIRECTOR" => [
-            "documentos.index",
-            "documentos.create",
-            "documentos.edit",
-            "documentos.destroy",
-
-            "reportes.solicitud_mantenimiento",
-            "reportes.servicio",
-            "reportes.equipos",
-            "reportes.historial_mantenimientos"
-        ]
+        "SUPERVISOR DE AUDITORÍA" => [],
+        "AUDITOR" => [],
     ];
 
 
@@ -174,9 +94,45 @@ class UserController extends Controller
             $array_infos[] = [
                 'label' => 'Usuarios',
                 'cantidad' => count(User::where('id', '!=', 1)->get()),
-                'color' => 'bg-grey-darken-3',
+                'color' => 'bg-principal',
                 'icon' => asset("imgs/icon_users.png"),
                 "url" => "usuarios.index"
+            ];
+        }
+        if (in_array('tipo_trabajos.index', self::$permisos[$tipo])) {
+            $array_infos[] = [
+                'label' => 'Tipo de Trabajos de Auditoría',
+                'cantidad' => 0,
+                'color' => 'bg-principal',
+                'icon' => asset("imgs/checklist.png"),
+                "url" => "tipo_trabajos.index"
+            ];
+        }
+        if (in_array('trabajo_auditorias.index', self::$permisos[$tipo])) {
+            $array_infos[] = [
+                'label' => 'Trabajos de Auditoría',
+                'cantidad' => 0,
+                'color' => 'bg-principal',
+                'icon' => asset("imgs/icon_recursos.png"),
+                "url" => "trabajo_auditorias.index"
+            ];
+        }
+        if (in_array('etapa_auditorias.index', self::$permisos[$tipo])) {
+            $array_infos[] = [
+                'label' => 'Etapas de Auditoría',
+                'cantidad' => 0,
+                'color' => 'bg-principal',
+                'icon' => asset("imgs/documents.png"),
+                "url" => "etapa_auditorias.index"
+            ];
+        }
+        if (in_array('papel_trabajos.index', self::$permisos[$tipo])) {
+            $array_infos[] = [
+                'label' => 'Papeles de Trabajo',
+                'cantidad' => 0,
+                'color' => 'bg-principal',
+                'icon' => asset("imgs/documentos.png"),
+                "url" => "papel_trabajos.index"
             ];
         }
         return $array_infos;

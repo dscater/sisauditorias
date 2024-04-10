@@ -161,10 +161,9 @@ const enviaFormulario = () => {
                                     /></label>
                                     <v-btn
                                         v-if="imagen_cargada"
-                                        color="green"
                                         size="small"
                                         variant="outlined"
-                                        class="w-50 mb-1"
+                                        class="w-50 mb-1 bg-secundario"
                                         prepend-icon="mdi-content-save"
                                         @click="guardarImagen"
                                     >
@@ -186,7 +185,9 @@ const enviaFormulario = () => {
                             <v-row>
                                 <v-col cols="12">
                                     <v-row>
-                                        <v-col cols="4" class="text-right font-weight-black text-caption d-flex align-center justify-end"
+                                        <v-col
+                                            cols="4"
+                                            class="text-right font-weight-black text-caption d-flex align-center justify-end"
                                             >Nombre:
                                         </v-col>
                                         <v-col cols="8" class="text-body-1">{{
@@ -194,7 +195,9 @@ const enviaFormulario = () => {
                                         }}</v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="4" class="text-right font-weight-black text-caption d-flex align-center justify-end"
+                                        <v-col
+                                            cols="4"
+                                            class="text-right font-weight-black text-caption d-flex align-center justify-end"
                                             >C.I.:
                                         </v-col>
                                         <v-col cols="8" class="text-body-1">{{
@@ -202,13 +205,19 @@ const enviaFormulario = () => {
                                         }}</v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="4" class="text-right font-weight-black text-caption d-flex align-center justify-end"
+                                        <v-col
+                                            cols="4"
+                                            class="text-right font-weight-black text-caption d-flex align-center justify-end"
                                             >Dirección:
                                         </v-col>
-                                        <v-col cols="8" class="text-body-1">{{ user.dir }}</v-col>
+                                        <v-col cols="8" class="text-body-1">{{
+                                            user.dir
+                                        }}</v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="4" class="text-right font-weight-black text-caption d-flex align-center justify-end"
+                                        <v-col
+                                            cols="4"
+                                            class="text-right font-weight-black text-caption d-flex align-center justify-end"
                                             >Correo:
                                         </v-col>
                                         <v-col cols="8" class="text-body-1">{{
@@ -216,13 +225,19 @@ const enviaFormulario = () => {
                                         }}</v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="4" class="text-right font-weight-black text-caption d-flex align-center justify-end"
+                                        <v-col
+                                            cols="4"
+                                            class="text-right font-weight-black text-caption d-flex align-center justify-end"
                                             >Teléfono/Celular:
                                         </v-col>
-                                        <v-col cols="8" class="text-body-1">{{ user.fono }}</v-col>
+                                        <v-col cols="8" class="text-body-1">{{
+                                            user.fono
+                                        }}</v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="4" class="text-right font-weight-black text-caption d-flex align-center justify-end"
+                                        <v-col
+                                            cols="4"
+                                            class="text-right font-weight-black text-caption d-flex align-center justify-end"
                                             >Fecha Registro:
                                         </v-col>
                                         <v-col cols="8" class="text-body-1">{{
@@ -237,7 +252,9 @@ const enviaFormulario = () => {
             </v-col>
             <v-col cols="12" sm="12" md="8">
                 <v-card>
-                    <v-card-title class="bg-grey-darken-3 ma-0">Cambiar contraseña </v-card-title>
+                    <v-card-title class="bg-principal ma-0"
+                        >Cambiar contraseña
+                    </v-card-title>
                     <v-card-item class="px-8">
                         <form>
                             <v-row class="mt-2">
@@ -322,7 +339,9 @@ const enviaFormulario = () => {
                         </form>
                     </v-card-item>
                     <v-card-actions class="px-7 pb-3">
-                        <v-btn class="bg-yellow-lighten-1" @click="enviaFormulario"
+                        <v-btn
+                            class="bg-principal"
+                            @click="enviaFormulario"
                             >Guardar cambios</v-btn
                         >
                     </v-card-actions>

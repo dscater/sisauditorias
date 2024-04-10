@@ -38,7 +38,7 @@ const { props } = usePage();
     <Head title="Inicio"></Head>
     <v-container>
         <BreadBrums :breadbrums="breadbrums"></BreadBrums>
-        <v-row>
+        <v-row justify="center">
             <v-col
                 cols="12"
                 sm="6"
@@ -49,7 +49,7 @@ const { props } = usePage();
                 <v-card>
                     <v-card-text class="pa-1">
                         <v-row>
-                            <v-col cols="4" class="pa-3 bg-grey-darken-4">
+                            <v-col cols="4" class="pa-3 bg-secundario">
                                 <v-img
                                     :src="info_box.icon"
                                     class="ma-auto ml-2"
