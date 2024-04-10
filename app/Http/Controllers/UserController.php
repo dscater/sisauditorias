@@ -49,7 +49,18 @@ class UserController extends Controller
 
             "reportes.usuarios",
         ],
-        "SUPERVISOR DE AUDITORÍA" => [],
+        "SUPERVISOR DE AUDITORÍA" => [
+
+            "tipo_trabajos.index",
+            "tipo_trabajos.create",
+            "tipo_trabajos.edit",
+            "tipo_trabajos.destroy",
+
+            "trabajo_auditorias.index",
+            "trabajo_auditorias.create",
+            "trabajo_auditorias.edit",
+            "trabajo_auditorias.destroy",
+        ],
         "AUDITOR" => [],
     ];
 

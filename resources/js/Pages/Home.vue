@@ -17,7 +17,6 @@ const breadbrums = [
         name_url: "inicio",
     },
 ];
-
 const props_page = defineProps({
     array_infos: {
         type: Array,
