@@ -22,6 +22,26 @@ class UserController extends Controller
             "usuarios.edit",
             "usuarios.destroy",
 
+            "institucions.index",
+            "institucions.create",
+            "institucions.edit",
+            "institucions.destroy",
+
+            "publicacions.index",
+            "publicacions.create",
+            "publicacions.edit",
+            "publicacions.destroy",
+
+            "noticias.index",
+            "noticias.create",
+            "noticias.edit",
+            "noticias.destroy",
+
+            "multimedias.index",
+            "multimedias.create",
+            "multimedias.edit",
+            "multimedias.destroy",
+
             "tipo_trabajos.index",
             "tipo_trabajos.create",
             "tipo_trabajos.edit",
@@ -41,11 +61,6 @@ class UserController extends Controller
             "papel_trabajos.create",
             "papel_trabajos.edit",
             "papel_trabajos.destroy",
-
-            "institucions.index",
-            "institucions.create",
-            "institucions.edit",
-            "institucions.destroy",
 
             "reportes.usuarios",
         ],

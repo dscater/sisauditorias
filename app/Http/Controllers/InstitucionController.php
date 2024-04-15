@@ -12,22 +12,19 @@ use Inertia\Inertia;
 class InstitucionController extends Controller
 {
     public $validacion = [
-        "nombre" => "required|min:2",
+        "institucion" => "required|min:2",
         "nombre_sistema" => "required|min:2",
         "nit" => "required|min:2",
-        "nombre_director" => "required|min:2",
         "dir" => "required|min:2",
     ];
 
     public $messages = [
-        "nombre.required" => "Este campo es obligatorio",
-        "nombre.min" => "Debes ingresar al menos :min caracteres",
+        "institucion.required" => "Este campo es obligatorio",
+        "institucion.min" => "Debes ingresar al menos :min caracteres",
         "nombre_sistema.required" => "Este campo es obligatorio",
         "nombre_sistema.min" => "Debes ingresar al menos :min caracteres",
         "nit.required" => "Este campo es obligatorio",
         "nit.min" => "Debes ingresar al menos :min caracteres",
-        "nombre_director.required" => "Este campo es obligatorio",
-        "nombre_director.min" => "Debes ingresar al menos :min caracteres",
         "dir.required" => "Este campo es obligatorio",
         "dir.min" => "Debes ingresar al menos :min caracteres",
     ];

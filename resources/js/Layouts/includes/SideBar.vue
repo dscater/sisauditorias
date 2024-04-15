@@ -23,6 +23,10 @@ const user_logeado = ref({
 
 const submenus = {
     "reportes.usuarios": "Reportes",
+    "institucions.index": "Institucion",
+    "publicacions.index": "Institucion",
+    "noticias.index": "Institucion",
+    "multimedias.index": "Institucion",
 };
 
 const route_current = ref("");
@@ -308,22 +312,113 @@ const scrollActive = () => {
                 >
                 <span v-else>OTROS</span></v-list-item
             >
-            <v-list-item
-                v-if="oUser.permisos.includes('institucions.index')"
-                prepend-icon="mdi-cog-outline"
-                :class="[route_current == 'institucions.index' ? 'active' : '']"
-                @click="cambiarUrl(route('institucions.index'))"
-                link
+
+            <!-- SUBGROUP -->
+            <v-list-group
+                value="Institucion"
+                v-if="
+                    oUser.permisos.includes('institucions.index') ||
+                    oUser.permisos.includes('publicacions.index') ||
+                    oUser.permisos.includes('noticias.index') ||
+                    oUser.permisos.includes('multimedias.index')
+                "
             >
-                <v-list-item-title>Institución</v-list-item-title>
-                <v-tooltip
-                    v-if="rail && !mobile"
-                    color="white"
-                    activator="parent"
-                    location="end"
-                    >Institución</v-tooltip
+                <template v-slot:activator="{ props }">
+                    <v-list-item
+                        v-bind="props"
+                        prepend-icon="mdi-list-box-outline"
+                        title="Institución"
+                        :class="[
+                            route_current == 'institucions.index' ||
+                            route_current == 'publicacions.index' ||
+                            route_current == 'noticias.index' ||
+                            route_current == 'multimedias.index'
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <v-tooltip
+                            v-if="rail && !mobile"
+                            color="white"
+                            activator="parent"
+                            location="end"
+                            >Institución</v-tooltip
+                        ></v-list-item
+                    >
+                </template>
+                <v-list-item
+                    v-if="oUser.permisos.includes('institucions.index')"
+                    prepend-icon="mdi-chevron-right"
+                    title="Información"
+                    :class="[
+                        route_current == 'institucions.index' ? 'active' : '',
+                    ]"
+                    @click="cambiarUrl(route('institucions.index'))"
+                    link
                 >
-            </v-list-item>
+                    <v-tooltip
+                        v-if="rail && !mobile"
+                        color="white"
+                        activator="parent"
+                        location="end"
+                        >Información</v-tooltip
+                    ></v-list-item
+                >
+                <v-list-item
+                    v-if="oUser.permisos.includes('publicacions.index')"
+                    prepend-icon="mdi-chevron-right"
+                    title="Publicaciones"
+                    :class="[
+                        route_current == 'publicacions.index' ? 'active' : '',
+                    ]"
+                    @click="cambiarUrl(route('publicacions.index'))"
+                    link
+                >
+                    <v-tooltip
+                        v-if="rail && !mobile"
+                        color="white"
+                        activator="parent"
+                        location="end"
+                        >Publicaciones</v-tooltip
+                    ></v-list-item
+                >
+                <v-list-item
+                    v-if="oUser.permisos.includes('noticias.index')"
+                    prepend-icon="mdi-chevron-right"
+                    title="Noticias"
+                    :class="[
+                        route_current == 'noticias.index' ? 'active' : '',
+                    ]"
+                    @click="cambiarUrl(route('noticias.index'))"
+                    link
+                >
+                    <v-tooltip
+                        v-if="rail && !mobile"
+                        color="white"
+                        activator="parent"
+                        location="end"
+                        >Noticias</v-tooltip
+                    ></v-list-item
+                >
+                <v-list-item
+                    v-if="oUser.permisos.includes('multimedias.index')"
+                    prepend-icon="mdi-chevron-right"
+                    title="Multimedia"
+                    :class="[
+                        route_current == 'multimedias.index' ? 'active' : '',
+                    ]"
+                    @click="cambiarUrl(route('multimedias.index'))"
+                    link
+                >
+                    <v-tooltip
+                        v-if="rail && !mobile"
+                        color="white"
+                        activator="parent"
+                        location="end"
+                        >Multimedia</v-tooltip
+                    ></v-list-item
+                >
+            </v-list-group>
             <v-list-item
                 prepend-icon="mdi-account-circle"
                 :class="[route_current == 'profile.edit' ? 'active' : '']"

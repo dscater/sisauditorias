@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\MultimediaController;
+use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsuarioController;
@@ -51,6 +54,21 @@ Route::middleware('auth')->group(function () {
     // INSTITUCION
     Route::resource("institucions", InstitucionController::class)->only(
         ["index", "show", "update"]
+    );
+
+    // PUBLICACIONS
+    Route::resource("publicacions", PublicacionController::class)->only(
+        ["index", "show", "store", "update"]
+    );
+
+    // NOTICIAS
+    Route::resource("noticias", NoticiaController::class)->only(
+        ["index", "show", "store", "update"]
+    );
+
+    // MULTIMEDIAS
+    Route::resource("multimedias", MultimediaController::class)->only(
+        ["index", "show", "store", "update"]
     );
 
     // USUARIO

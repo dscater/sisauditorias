@@ -10,36 +10,30 @@ class Institucion extends Model
     use HasFactory;
 
     protected $fillable = [
-        "nombre",
+        "institucion",
         "nombre_sistema",
         "nit",
-        "historia",
+        "img_organigrama",
         "mision",
         "vision",
-        "objetivo",
-        "nombre_director",
-        "foto_director",
-        "nombre_subdirector",
-        "foto_subdirector",
-        "fono1",
-        "fono2",
-        "correo1",
-        "correo2",
-        "facebook",
-        "youtube",
-        "twitter",
-        "dir",
+        "principios",
+        "valores",
+        "administracion",
+        "codigo_etica",
+        "informacion_financiera",
         "ubicacion_google",
-        "img_organigrama",
+        "ciudad",
+        "dir",
+        "fonos",
+        "horario",
+        "correo",
         "logo",
-        "logo2",
     ];
 
     protected $appends = [
         "iniciales_nombre",
         "url_logo",
         "url_img_organigrama",
-
     ];
 
     public function getInicialesNombreAttribute()

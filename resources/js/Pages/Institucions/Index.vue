@@ -95,7 +95,7 @@ function limpiaRefs() {
             <v-col cols="12" class="d-flex justify-end">
                 <v-btn
                     prepend-icon="mdi-pencil"
-                    color="yellow-lighten-1"
+                    class="bg-principal"
                     v-if="window == 0"
                     @click="cambiaVentana(1)"
                 >
@@ -114,7 +114,7 @@ function limpiaRefs() {
                 >
                 <v-btn
                     prepend-icon="mdi-content-save"
-                    color="yellow-lighten-1"
+                    class="bg-principal"
                     v-if="window == 1"
                     @click="enviaFormulario"
                 >
@@ -155,12 +155,6 @@ function limpiaRefs() {
                                                         "
                                                     ></span>
                                                 </v-avatar>
-                                                <v-img
-                                                    cover
-                                                    v-if="institucion.url_logo2"
-                                                    :src="institucion.url_logo2"
-                                                    class="w-75 mx-auto"
-                                                ></v-img>
                                                 <v-avatar
                                                     v-else
                                                     color="grey"
@@ -176,10 +170,11 @@ function limpiaRefs() {
                                                 <span
                                                     class="text-h6 d-block mt-3"
                                                     >{{
-                                                        institucion.nombre
+                                                        institucion.institucion
                                                     }}</span
                                                 >
 
+                                                {{ institucion.ciudad }}<br />
                                                 {{ institucion.dir }}
                                             </v-col>
                                             <v-divider vertical></v-divider>
@@ -231,118 +226,22 @@ function limpiaRefs() {
                                                         <div
                                                             class="text-caption font-weight-bold"
                                                         >
-                                                            Director
+                                                            Teléfonos
+                                                        </div>
+                                                        {{ institucion.fonos }}
+                                                    </v-col>
+                                                    <v-col
+                                                        cols="6"
+                                                        md="3"
+                                                        xl="3"
+                                                    >
+                                                        <div
+                                                            class="text-caption font-weight-bold"
+                                                        >
+                                                            Horarios
                                                         </div>
                                                         {{
-                                                            institucion.nombre_director
-                                                        }}<v-avatar
-                                                            class="ml-2"
-                                                            :color="
-                                                                institucion.url_foto_director
-                                                                    ? 'grey'
-                                                                    : 'blue'
-                                                            "
-                                                            size="40"
-                                                        >
-                                                            <v-img
-                                                                cover
-                                                                v-if="
-                                                                    institucion.url_foto_director
-                                                                "
-                                                                :src="
-                                                                    institucion.url_foto_director
-                                                                "
-                                                            ></v-img>
-                                                            <span
-                                                                v-else
-                                                                class=""
-                                                            >
-                                                                {{
-                                                                    institucion.iniciales_director
-                                                                }}
-                                                            </span>
-                                                        </v-avatar>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Subdirector
-                                                        </div>
-                                                        {{
-                                                            institucion.nombre_subdirector
-                                                        }}
-                                                        <v-avatar
-                                                            class="ml-2"
-                                                            :color="
-                                                                institucion.url_foto_subdirector
-                                                                    ? 'grey'
-                                                                    : 'blue'
-                                                            "
-                                                            size="40"
-                                                            v-if="
-                                                                institucion.nombre_subdirector
-                                                            "
-                                                        >
-                                                            <v-img
-                                                                cover
-                                                                v-if="
-                                                                    institucion.url_foto_subdirector
-                                                                "
-                                                                :src="
-                                                                    institucion.url_foto_subdirector
-                                                                "
-                                                            ></v-img>
-                                                            <span
-                                                                v-else
-                                                                class=""
-                                                            >
-                                                                {{
-                                                                    institucion.iniciales_subdirector
-                                                                }}
-                                                            </span>
-                                                        </v-avatar>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Teléfono 1
-                                                        </div>
-                                                        {{ institucion.fono1 }}
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Teléfono 2
-                                                        </div>
-                                                        {{ institucion.fono2 }}
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Correo 1
-                                                        </div>
-                                                        {{
-                                                            institucion.correo1
+                                                            institucion.horario
                                                         }}
                                                     </v-col>
                                                     <v-col
@@ -353,53 +252,9 @@ function limpiaRefs() {
                                                         <div
                                                             class="text-caption font-weight-bold"
                                                         >
-                                                            Correo 2
+                                                            Correo
                                                         </div>
-                                                        {{
-                                                            institucion.correo2
-                                                        }}
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Facebook
-                                                        </div>
-                                                        {{
-                                                            institucion.facebook
-                                                        }}
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Youtube
-                                                        </div>
-                                                        {{
-                                                            institucion.youtube
-                                                        }}
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="6"
-                                                        md="3"
-                                                        xl="3"
-                                                    >
-                                                        <div
-                                                            class="text-caption font-weight-bold"
-                                                        >
-                                                            Twitter
-                                                        </div>
-                                                        {{
-                                                            institucion.twitter
-                                                        }}
+                                                        {{ institucion.correo }}
                                                     </v-col>
                                                 </v-row>
                                             </v-col>
@@ -407,54 +262,8 @@ function limpiaRefs() {
                                     </v-card-text>
                                 </v-card>
                             </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-card>
-                                    <v-card-title
-                                        class="text-h6 text-center text-body-1 font-weight-black"
-                                        >HISTORIA</v-card-title
-                                    >
-                                    <v-card-text>
-                                        <v-col cols="12" class="text-center">
-                                            <p
-                                                class="text-caption text-justify"
-                                                v-text="institucion.historia"
-                                            ></p>
-                                        </v-col>
-                                    </v-card-text>
-                                </v-card>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-card>
-                                    <v-card-title
-                                        class="text-h6 text-center text-body-1 font-weight-black"
-                                        >MISIÓN</v-card-title
-                                    >
-                                    <v-card-text>
-                                        <v-col cols="12" class="text-center">
-                                            <p
-                                                class="text-caption text-justify"
-                                                v-text="institucion.mision"
-                                            ></p>
-                                        </v-col>
-                                    </v-card-text>
-                                </v-card>
-                            </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-card>
-                                    <v-card-title
-                                        class="text-h6 text-center text-body-1 font-weight-black"
-                                        >OBJETIVO</v-card-title
-                                    >
-                                    <v-card-text>
-                                        <v-col cols="12" class="text-center">
-                                            <p
-                                                class="text-caption text-justify"
-                                                v-text="institucion.objetivo"
-                                            ></p>
-                                        </v-col>
-                                    </v-card-text>
-                                </v-card>
-                            </v-col>
+                        </v-row>
+                        <v-row>
                             <v-col cols="12" sm="6" md="6">
                                 <v-card>
                                     <v-card-title
@@ -496,6 +305,156 @@ function limpiaRefs() {
                                 </v-card>
                             </v-col>
                         </v-row>
+                        <v-row>
+                            <v-col cols="12">
+                                <h4 class="text-h5 text-center">Institución</h4>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >MISIÓN</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="institucion.mision"
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >VISIÓN</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="institucion.vision"
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >PRINCIPIOS</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="institucion.principios"
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >VALORES</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="institucion.valores"
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col cols="12">
+                                <h4 class="text-h5 text-center">
+                                    Transparencia
+                                </h4>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >ADMINISTRACIÓN</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="
+                                                    institucion.administracion
+                                                "
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >CÓDIGO DE ÉTICA</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="
+                                                    institucion.codigo_etica
+                                                "
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >INFORMACIÓN FINANCIERA</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="
+                                                    institucion.informacion_financiera
+                                                "
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="3">
+                                <v-card>
+                                    <v-card-title
+                                        class="text-h6 text-center text-body-1 font-weight-black"
+                                        >VALORES</v-card-title
+                                    >
+                                    <v-card-text>
+                                        <v-col cols="12" class="text-center">
+                                            <p
+                                                class="text-caption text-justify"
+                                                v-text="institucion.valores"
+                                            ></p>
+                                        </v-col>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                        </v-row>
                     </v-window-item>
                     <v-window-item :key="1">
                         <v-row>
@@ -517,22 +476,22 @@ function limpiaRefs() {
                                                         <v-text-field
                                                             :hide-details="
                                                                 form.errors
-                                                                    ?.nombre
+                                                                    ?.institucion
                                                                     ? false
                                                                     : true
                                                             "
                                                             :error="
                                                                 form.errors
-                                                                    ?.nombre
+                                                                    ?.institucion
                                                                     ? true
                                                                     : false
                                                             "
                                                             :error-messages="
                                                                 form.errors
-                                                                    ?.nombre
+                                                                    ?.institucion
                                                                     ? form
                                                                           .errors
-                                                                          ?.nombre
+                                                                          ?.institucion
                                                                     : ''
                                                             "
                                                             density="compact"
@@ -540,7 +499,7 @@ function limpiaRefs() {
                                                             color="grey"
                                                             label="Nombre Institución*"
                                                             v-model="
-                                                                form.nombre
+                                                                form.institucion
                                                             "
                                                             required
                                                         ></v-text-field>
@@ -614,43 +573,7 @@ function limpiaRefs() {
                                                             required
                                                         ></v-text-field>
                                                     </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.nombre_director
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.nombre_director
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.nombre_director
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.nombre_director
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Nombre Completo Director*"
-                                                            v-model="
-                                                                form.nombre_director
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
+
                                                     <v-col
                                                         cols="12"
                                                         sm="6"
@@ -660,404 +583,38 @@ function limpiaRefs() {
                                                         <v-file-input
                                                             :hide-details="
                                                                 form.errors
-                                                                    ?.foto_director
+                                                                    ?.organigrama
                                                                     ? false
                                                                     : true
                                                             "
                                                             :error="
                                                                 form.errors
-                                                                    ?.foto_director
+                                                                    ?.organigrama
                                                                     ? true
                                                                     : false
                                                             "
                                                             :error-messages="
                                                                 form.errors
-                                                                    ?.foto_director
+                                                                    ?.organigrama
                                                                     ? form
                                                                           .errors
-                                                                          ?.foto_director
+                                                                          ?.organigrama
                                                                     : ''
                                                             "
                                                             density="compact"
                                                             variant="outlined"
                                                             accept="image/png, image/jpeg, image/bmp, image/webp"
-                                                            placeholder="Foto Director"
+                                                            placeholder="Organigrama"
                                                             prepend-icon="mdi-camera"
-                                                            label="Foto Director"
+                                                            label="Organigrama"
                                                             @change="
                                                                 cargaArchivo(
                                                                     $event,
-                                                                    'foto_director'
+                                                                    'img_organigrama'
                                                                 )
                                                             "
-                                                            ref="foto_director"
+                                                            ref="img_organigrama"
                                                         ></v-file-input>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.nombre_subdirector
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.nombre_subdirector
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.nombre_subdirector
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.nombre_subdirector
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Nombre Completo Subirector"
-                                                            v-model="
-                                                                form.nombre_subdirector
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-file-input
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.foto_subdirector
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.foto_subdirector
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.foto_subdirector
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.foto_subdirector
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            accept="image/png, image/jpeg, image/bmp, image/webp"
-                                                            placeholder="Foto Subdirector"
-                                                            prepend-icon="mdi-camera"
-                                                            label="Foto Subdirector"
-                                                            @change="
-                                                                cargaArchivo(
-                                                                    $event,
-                                                                    'foto_subdirector'
-                                                                )
-                                                            "
-                                                            ref="foto_subdirector"
-                                                        ></v-file-input>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.fono1
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.fono1
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.fono1
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.fono1
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Teléfono 1"
-                                                            v-model="form.fono1"
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.fono2
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.fono2
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.fono2
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.fono2
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Teléfono 2"
-                                                            v-model="form.fono2"
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.correo1
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.correo1
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.correo1
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.correo1
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Correo 1"
-                                                            v-model="
-                                                                form.correo1
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.correo2
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.correo2
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.correo2
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.correo2
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Correo 2"
-                                                            v-model="
-                                                                form.correo2
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.facebook
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.facebook
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.facebook
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.facebook
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Facebook"
-                                                            v-model="
-                                                                form.facebook
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.youtube
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.youtube
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.youtube
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.youtube
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Youtube"
-                                                            v-model="
-                                                                form.youtube
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.twitter
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.twitter
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.twitter
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.twitter
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Twitter"
-                                                            v-model="
-                                                                form.twitter
-                                                            "
-                                                            required
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-text-field
-                                                            :hide-details="
-                                                                form.errors?.dir
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors?.dir
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors?.dir
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.dir
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            color="grey"
-                                                            label="Dirección"
-                                                            v-model="form.dir"
-                                                            required
-                                                        ></v-text-field>
                                                     </v-col>
                                                     <v-col
                                                         cols="12"
@@ -1101,122 +658,14 @@ function limpiaRefs() {
                                                             ref="logo"
                                                         ></v-file-input>
                                                     </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-file-input
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.logo2
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.logo2
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.logo2
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.logo2
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            accept="image/png, image/jpeg, image/bmp, image/webp"
-                                                            placeholder="Logo 2"
-                                                            prepend-icon="mdi-camera"
-                                                            label="Logo 2"
-                                                            @change="
-                                                                cargaArchivo(
-                                                                    $event,
-                                                                    'logo2'
-                                                                )
-                                                            "
-                                                            ref="logo2"
-                                                        ></v-file-input>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                        xl="4"
-                                                    >
-                                                        <v-file-input
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.organigrama
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.organigrama
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.organigrama
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.organigrama
-                                                                    : ''
-                                                            "
-                                                            density="compact"
-                                                            variant="outlined"
-                                                            accept="image/png, image/jpeg, image/bmp, image/webp"
-                                                            placeholder="Organigrama"
-                                                            prepend-icon="mdi-camera"
-                                                            label="Organigrama"
-                                                            @change="
-                                                                cargaArchivo(
-                                                                    $event,
-                                                                    'img_organigrama'
-                                                                )
-                                                            "
-                                                            ref="img_organigrama"
-                                                        ></v-file-input>
-                                                    </v-col>
                                                 </v-row>
                                                 <v-row>
                                                     <v-col cols="12">
-                                                        <v-textarea
-                                                            :hide-details="
-                                                                form.errors
-                                                                    ?.historia
-                                                                    ? false
-                                                                    : true
-                                                            "
-                                                            :error="
-                                                                form.errors
-                                                                    ?.historia
-                                                                    ? true
-                                                                    : false
-                                                            "
-                                                            :error-messages="
-                                                                form.errors
-                                                                    ?.historia
-                                                                    ? form
-                                                                          .errors
-                                                                          ?.historia
-                                                                    : ''
-                                                            "
-                                                            variant="outlined"
-                                                            label="Historia"
-                                                            rows="1"
-                                                            auto-grow
-                                                            v-model="
-                                                                form.historia
-                                                            "
-                                                        ></v-textarea>
+                                                        <h4
+                                                            class="text-h5 text-center"
+                                                        >
+                                                            INSTITUCIÓN
+                                                        </h4>
                                                     </v-col>
                                                     <v-col cols="12">
                                                         <v-textarea
@@ -1253,32 +702,205 @@ function limpiaRefs() {
                                                         <v-textarea
                                                             :hide-details="
                                                                 form.errors
-                                                                    ?.objetivo
+                                                                    ?.vision
                                                                     ? false
                                                                     : true
                                                             "
                                                             :error="
                                                                 form.errors
-                                                                    ?.objetivo
+                                                                    ?.vision
                                                                     ? true
                                                                     : false
                                                             "
                                                             :error-messages="
                                                                 form.errors
-                                                                    ?.objetivo
+                                                                    ?.vision
                                                                     ? form
                                                                           .errors
-                                                                          ?.objetivo
+                                                                          ?.vision
                                                                     : ''
                                                             "
                                                             variant="outlined"
-                                                            label="Objetivo General"
+                                                            label="Visión"
                                                             rows="1"
                                                             auto-grow
                                                             v-model="
-                                                                form.objetivo
+                                                                form.vision
                                                             "
                                                         ></v-textarea>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-textarea
+                                                            :hide-details="
+                                                                form.errors
+                                                                    ?.principios
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors
+                                                                    ?.principios
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors
+                                                                    ?.principios
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.principios
+                                                                    : ''
+                                                            "
+                                                            variant="outlined"
+                                                            label="Principios"
+                                                            rows="1"
+                                                            auto-grow
+                                                            v-model="
+                                                                form.principios
+                                                            "
+                                                        ></v-textarea>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-textarea
+                                                            :hide-details="
+                                                                form.errors
+                                                                    ?.valores
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors
+                                                                    ?.valores
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors
+                                                                    ?.valores
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.valores
+                                                                    : ''
+                                                            "
+                                                            variant="outlined"
+                                                            label="Valores"
+                                                            rows="1"
+                                                            auto-grow
+                                                            v-model="
+                                                                form.valores
+                                                            "
+                                                        ></v-textarea>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-row>
+                                                    <v-col cols="12">
+                                                        <h4
+                                                            class="text-h5 text-center"
+                                                        >
+                                                            TRANSPARENCIA
+                                                        </h4>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-textarea
+                                                            :hide-details="
+                                                                form.errors
+                                                                    ?.administracion
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors
+                                                                    ?.administracion
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors
+                                                                    ?.administracion
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.administracion
+                                                                    : ''
+                                                            "
+                                                            variant="outlined"
+                                                            label="Administración"
+                                                            rows="1"
+                                                            auto-grow
+                                                            v-model="
+                                                                form.administracion
+                                                            "
+                                                        ></v-textarea>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-textarea
+                                                            :hide-details="
+                                                                form.errors
+                                                                    ?.codigo_etica
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors
+                                                                    ?.codigo_etica
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors
+                                                                    ?.codigo_etica
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.codigo_etica
+                                                                    : ''
+                                                            "
+                                                            variant="outlined"
+                                                            label="Código de ética"
+                                                            rows="1"
+                                                            auto-grow
+                                                            v-model="
+                                                                form.codigo_etica
+                                                            "
+                                                        ></v-textarea>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-textarea
+                                                            :hide-details="
+                                                                form.errors
+                                                                    ?.informacion_financiera
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors
+                                                                    ?.informacion_financiera
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors
+                                                                    ?.informacion_financiera
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.informacion_financiera
+                                                                    : ''
+                                                            "
+                                                            variant="outlined"
+                                                            label="Información Financiera"
+                                                            rows="1"
+                                                            auto-grow
+                                                            v-model="
+                                                                form.informacion_financiera
+                                                            "
+                                                        ></v-textarea>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-row>
+                                                    <v-col cols="12">
+                                                        <h4
+                                                            class="text-h5 text-center"
+                                                        >
+                                                            CONTACTOS
+                                                        </h4>
                                                     </v-col>
                                                     <v-col cols="12">
                                                         <v-textarea
@@ -1310,6 +932,171 @@ function limpiaRefs() {
                                                                 form.ubicacion_google
                                                             "
                                                         ></v-textarea>
+                                                    </v-col>
+                                                    <v-col
+                                                        cols="12"
+                                                        sm="6"
+                                                        md="6"
+                                                        xl="4"
+                                                    >
+                                                        <v-text-field
+                                                            :hide-details="
+                                                                form.errors?.ciudad
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors?.ciudad
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors?.ciudad
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.ciudad
+                                                                    : ''
+                                                            "
+                                                            density="compact"
+                                                            variant="outlined"
+                                                            color="grey"
+                                                            label="Ciudad"
+                                                            v-model="form.ciudad"
+                                                            required
+                                                        ></v-text-field>
+                                                    </v-col>
+                                                    <v-col
+                                                        cols="12"
+                                                        sm="6"
+                                                        md="6"
+                                                        xl="4"
+                                                    >
+                                                        <v-text-field
+                                                            :hide-details="
+                                                                form.errors?.dir
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors?.dir
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors?.dir
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.dir
+                                                                    : ''
+                                                            "
+                                                            density="compact"
+                                                            variant="outlined"
+                                                            color="grey"
+                                                            label="Dirección"
+                                                            v-model="form.dir"
+                                                            required
+                                                        ></v-text-field>
+                                                    </v-col>
+                                                    <v-col
+                                                        cols="12"
+                                                        sm="6"
+                                                        md="6"
+                                                        xl="4"
+                                                    >
+                                                        <v-text-field
+                                                            :hide-details="
+                                                                form.errors?.fonos
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors?.fonos
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors?.fonos
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.fonos
+                                                                    : ''
+                                                            "
+                                                            density="compact"
+                                                            variant="outlined"
+                                                            color="grey"
+                                                            label="Teléfonos"
+                                                            v-model="form.fonos"
+                                                            required
+                                                        ></v-text-field>
+                                                    </v-col>
+                                                    <v-col
+                                                        cols="12"
+                                                        sm="6"
+                                                        md="6"
+                                                        xl="4"
+                                                    >
+                                                        <v-text-field
+                                                            :hide-details="
+                                                                form.errors?.horario
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors?.horario
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors?.horario
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.horario
+                                                                    : ''
+                                                            "
+                                                            density="compact"
+                                                            variant="outlined"
+                                                            color="grey"
+                                                            label="Horarios de atención"
+                                                            v-model="form.horario"
+                                                            required
+                                                        ></v-text-field>
+                                                    </v-col>
+                                                    <v-col
+                                                        cols="12"
+                                                        sm="6"
+                                                        md="6"
+                                                        xl="4"
+                                                    >
+                                                        <v-text-field
+                                                            :hide-details="
+                                                                form.errors
+                                                                    ?.correo
+                                                                    ? false
+                                                                    : true
+                                                            "
+                                                            :error="
+                                                                form.errors
+                                                                    ?.correo
+                                                                    ? true
+                                                                    : false
+                                                            "
+                                                            :error-messages="
+                                                                form.errors
+                                                                    ?.correo
+                                                                    ? form
+                                                                          .errors
+                                                                          ?.correo
+                                                                    : ''
+                                                            "
+                                                            density="compact"
+                                                            variant="outlined"
+                                                            color="grey"
+                                                            label="Correo electrónico"
+                                                            v-model="
+                                                                form.correo
+                                                            "
+                                                            required
+                                                        ></v-text-field>
                                                     </v-col>
                                                 </v-row>
                                             </form>
