@@ -35,7 +35,7 @@ watch(
 
 const { flash } = usePage().props;
 
-const listTipos = ["ADMINISTRADOR", "JEFE DE ÁREA", "TÉCNICO", "DIRECTOR"];
+const listTipos = ["GERENTE AUDITOR", "SUPERVISOR DE AUDITORÍA", "AUDITOR"];
 const listExpedido = [
     { value: "LP", label: "La Paz" },
     { value: "CB", label: "Cochabamba" },
@@ -232,6 +232,52 @@ const cerrarDialog = () => {
                                     ></v-select>
                                 </v-col>
                                 <v-col cols="12" sm="6" md="4">
+                                    <v-select
+                                        :hide-details="
+                                            form.errors?.sexo ? false : true
+                                        "
+                                        :error="
+                                            form.errors?.sexo ? true : false
+                                        "
+                                        :error-messages="
+                                            form.errors?.sexo
+                                                ? form.errors?.sexo
+                                                : ''
+                                        "
+                                        density="compact"
+                                        variant="outlined"
+                                        clearable
+                                        :items="['HOMBRE', 'MUJER']"
+                                        label="Sexo*"
+                                        v-model="form.sexo"
+                                        required
+                                    ></v-select>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        :hide-details="
+                                            form.errors?.nacionalidad
+                                                ? false
+                                                : true
+                                        "
+                                        :error="
+                                            form.errors?.nacionalidad
+                                                ? true
+                                                : false
+                                        "
+                                        :error-messages="
+                                            form.errors?.nacionalidad
+                                                ? form.errors?.nacionalidad
+                                                : ''
+                                        "
+                                        density="compact"
+                                        variant="outlined"
+                                        label="Nacionalidad*"
+                                        v-model="form.nacionalidad"
+                                        required
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
                                     <v-text-field
                                         :hide-details="
                                             form.errors?.dir ? false : true
@@ -290,6 +336,74 @@ const cerrarDialog = () => {
                                     ></v-text-field>
                                 </v-col>
                                 <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        :hide-details="
+                                            form.errors?.profesion
+                                                ? false
+                                                : true
+                                        "
+                                        :error="
+                                            form.errors?.profesion
+                                                ? true
+                                                : false
+                                        "
+                                        :error-messages="
+                                            form.errors?.profesion
+                                                ? form.errors?.profesion
+                                                : ''
+                                        "
+                                        density="compact"
+                                        variant="outlined"
+                                        label="Profesión*"
+                                        v-model="form.profesion"
+                                        required
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-select
+                                        :hide-details="
+                                            form.errors?.cargo ? false : true
+                                        "
+                                        :error="
+                                            form.errors?.cargo ? true : false
+                                        "
+                                        :error-messages="
+                                            form.errors?.cargo
+                                                ? form.errors?.cargo
+                                                : ''
+                                        "
+                                        density="compact"
+                                        variant="outlined"
+                                        clearable
+                                        :items="['GA', 'SU', 'AU']"
+                                        label="Cargo*"
+                                        v-model="form.cargo"
+                                        required
+                                    ></v-select>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-select
+                                        :hide-details="
+                                            form.errors?.nivel ? false : true
+                                        "
+                                        :error="
+                                            form.errors?.nivel ? true : false
+                                        "
+                                        :error-messages="
+                                            form.errors?.nivel
+                                                ? form.errors?.nivel
+                                                : ''
+                                        "
+                                        density="compact"
+                                        variant="outlined"
+                                        clearable
+                                        :items="['A', 'B', 'C']"
+                                        label="Nivel*"
+                                        v-model="form.nivel"
+                                        required
+                                    ></v-select>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
                                     <v-select
                                         :hide-details="
                                             form.errors?.tipo ? false : true
@@ -333,26 +447,6 @@ const cerrarDialog = () => {
                                         @change="cargaArchivo($event, 'foto')"
                                         ref="foto"
                                     ></v-file-input>
-                                </v-col>
-                                <v-col cols="12" sm="6" md="4">
-                                    <v-text-field
-                                        :hide-details="
-                                            form.errors?.item ? false : true
-                                        "
-                                        :error="
-                                            form.errors?.item ? true : false
-                                        "
-                                        :error-messages="
-                                            form.errors?.item
-                                                ? form.errors?.item
-                                                : ''
-                                        "
-                                        density="compact"
-                                        variant="outlined"
-                                        label="Item"
-                                        v-model="form.item"
-                                        required
-                                    ></v-text-field>
                                 </v-col>
                                 <v-col
                                     cols="12"

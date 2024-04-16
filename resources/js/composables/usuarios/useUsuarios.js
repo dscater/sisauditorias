@@ -4,17 +4,23 @@ import { usePage } from "@inertiajs/vue3";
 
 const oUsuario = ref({
     id: 0,
+    usuario: "",
+    password: "",
     nombre: "",
     paterno: "",
     materno: "",
     ci: "",
     ci_exp: "",
+    sexo: "",
+    nacionalidad: "",
     dir: "",
     email: "",
     fono: "",
+    profesion: "",
+    cargo: "",
+    nivel: "",
     tipo: "",
     foto: "",
-    item: "",
     acceso: 0 + "",
     _method: "POST",
 });
@@ -46,15 +52,11 @@ export const useUsuarios = () => {
         }
     };
 
-    const getUsuariosByTipo = async (tipo, sin_area = false, id = null) => {
+    const getUsuariosByTipo = async (data) => {
         try {
             const response = await axios.get(route("usuarios.byTipo"), {
                 headers: { Accept: "application/json" },
-                params: {
-                    tipo,
-                    sin_area,
-                    id,
-                },
+                params: data,
             });
             return response.data.usuarios;
         } catch (error) {
@@ -154,17 +156,23 @@ export const useUsuarios = () => {
     const setUsuario = (item = null) => {
         if (item) {
             oUsuario.value.id = item.id;
+            oUsuario.value.usuario = item.usuario;
+            oUsuario.value.password = item.password;
             oUsuario.value.nombre = item.nombre;
             oUsuario.value.paterno = item.paterno;
             oUsuario.value.materno = item.materno;
             oUsuario.value.ci = item.ci;
             oUsuario.value.ci_exp = item.ci_exp;
+            oUsuario.value.sexo = item.sexo;
+            oUsuario.value.nacionalidad = item.nacionalidad;
             oUsuario.value.dir = item.dir;
             oUsuario.value.email = item.email;
             oUsuario.value.fono = item.fono;
+            oUsuario.value.profesion = item.profesion;
+            oUsuario.value.cargo = item.cargo;
+            oUsuario.value.nivel = item.nivel;
             oUsuario.value.tipo = item.tipo;
             oUsuario.value.foto = item.foto;
-            oUsuario.value.item = item.item;
             oUsuario.value.acceso = item.acceso + "";
             oUsuario.value._method = "PUT";
             return oUsuario;
@@ -174,17 +182,23 @@ export const useUsuarios = () => {
 
     const limpiarUsuario = () => {
         oUsuario.value.id = 0;
+        oUsuario.value.usuario = "";
+        oUsuario.value.password = "";
         oUsuario.value.nombre = "";
         oUsuario.value.paterno = "";
         oUsuario.value.materno = "";
         oUsuario.value.ci = "";
         oUsuario.value.ci_exp = "";
+        oUsuario.value.sexo = "";
+        oUsuario.value.nacionalidad = "";
         oUsuario.value.dir = "";
         oUsuario.value.email = "";
         oUsuario.value.fono = "";
+        oUsuario.value.profesion = "";
+        oUsuario.value.cargo = "";
+        oUsuario.value.nivel = "";
         oUsuario.value.tipo = "";
         oUsuario.value.foto = "";
-        oUsuario.value.item = "";
         oUsuario.value.acceso = 0 + "";
         oUsuario.value._method = "POST";
     };

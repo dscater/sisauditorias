@@ -21,6 +21,11 @@ class UsuarioController extends Controller
         "dir" => "required|min:1",
         "fono" => "required|min:1",
         "tipo" => "required",
+        "sexo" => "required",
+        "nacionalidad" => "required",
+        "cargo" => "required",
+        "profesion" => "required",
+        "nivel" => "required",
     ];
 
     public $mensajes = [
@@ -42,6 +47,11 @@ class UsuarioController extends Controller
         "fono.required" => "Este campo es obligatorio",
         "fono.min" => "Debes ingresar al menos :min caracteres",
         "tipo.required" => "Este campo es obligatorio",
+        "sexo.required" => "Este campo es obligatorio",
+        "nacionalidad.required" => "Este campo es obligatorio",
+        "cargo.required" => "Este campo es obligatorio",
+        "profesion.required" => "Este campo es obligatorio",
+        "nivel.required" => "Este campo es obligatorio",
     ];
 
     public function index()

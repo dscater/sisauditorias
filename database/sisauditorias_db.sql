@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 15-04-2024 a las 18:47:28
+-- Tiempo de generación: 16-04-2024 a las 16:44:46
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -118,7 +118,28 @@ INSERT INTO `historial_accions` (`id`, `user_id`, `accion`, `descripcion`, `dato
 (27, 1, 'CREACIÓN', 'EL USUARIO admin ACTUALIZO UNA MULTIMEDIA', '', NULL, 'MULTIMEDIAS', '2024-04-15', '14:43:45', '2024-04-15 18:43:45', '2024-04-15 18:43:45'),
 (30, 1, 'CREACIÓN', 'EL USUARIO admin ELIMINO UNA MULTIMEDIA', '', NULL, 'MULTIMEDIAS', '2024-04-15', '14:45:52', '2024-04-15 18:45:52', '2024-04-15 18:45:52'),
 (31, 1, 'CREACIÓN', 'EL USUARIO admin REGISTRO UNA MULTIMEDIA', '', NULL, 'MULTIMEDIAS', '2024-04-15', '14:47:11', '2024-04-15 18:47:11', '2024-04-15 18:47:11'),
-(32, 1, 'CREACIÓN', 'EL USUARIO admin REGISTRO UNA MULTIMEDIA', '', NULL, 'MULTIMEDIAS', '2024-04-15', '14:47:11', '2024-04-15 18:47:11', '2024-04-15 18:47:11');
+(32, 1, 'CREACIÓN', 'EL USUARIO admin REGISTRO UNA MULTIMEDIA', '', NULL, 'MULTIMEDIAS', '2024-04-15', '14:47:11', '2024-04-15 18:47:11', '2024-04-15 18:47:11'),
+(33, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: TIPO TRABAJO #1<br/>descripcion: <br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 11:16:16<br/>updated_at: 2024-04-16 11:16:16<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '11:16:16', '2024-04-16 15:16:16', '2024-04-16 15:16:16'),
+(34, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: TIPO TRABAJO #1<br/>descripcion: <br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 11:16:16<br/>updated_at: 2024-04-16 11:16:16<br/>', 'id: 1<br/>nombre: TIPO TRABAJO #1<br/>descripcion: <br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 11:16:16<br/>updated_at: 2024-04-16 11:16:16<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '11:16:43', '2024-04-16 15:16:43', '2024-04-16 15:16:43'),
+(35, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: TIPO TRABAJO #1<br/>descripcion: <br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 11:16:16<br/>updated_at: 2024-04-16 11:16:16<br/>', 'id: 1<br/>nombre: TIPO TRABAJO #1<br/>descripcion: DESC<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 11:16:16<br/>updated_at: 2024-04-16 11:17:13<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '11:17:13', '2024-04-16 15:17:13', '2024-04-16 15:17:13'),
+(36, 1, 'ELIMINACIÓN', 'EL USUARIO  ELIMINÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: TIPO TRABAJO #1<br/>descripcion: DESC<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 11:16:16<br/>updated_at: 2024-04-16 11:17:13<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '11:17:19', '2024-04-16 15:17:19', '2024-04-16 15:17:19'),
+(37, 1, 'CREACIÓN', 'EL USUARIO admin REGISTRO UN USUARIO', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$EARK8LWd.ygATD9PKVz4oee14S2Vc79Igt8YmICRVomg93lDzL2Li<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: GA<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:11:41<br/>', NULL, 'USUARIOS', '2024-04-16', '12:11:41', '2024-04-16 16:11:41', '2024-04-16 16:11:41'),
+(38, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$EARK8LWd.ygATD9PKVz4oee14S2Vc79Igt8YmICRVomg93lDzL2Li<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: GA<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:11:41<br/>', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$wBaDR8591F1t7EcBDJoSLuVRjv70Ea4FDCJA06vajTg3INNHr3JiW<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANOS<br/>dir: LOS OLIVOSS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: SU<br/>nivel: B<br/>tipo: SUPERVISOR DE AUDITORÍA<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:15<br/>', 'USUARIOS', '2024-04-16', '12:12:15', '2024-04-16 16:12:15', '2024-04-16 16:12:15'),
+(39, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$wBaDR8591F1t7EcBDJoSLuVRjv70Ea4FDCJA06vajTg3INNHr3JiW<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANOS<br/>dir: LOS OLIVOSS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: SU<br/>nivel: B<br/>tipo: SUPERVISOR DE AUDITORÍA<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:15<br/>', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$5CRqsK8lOWyBTgmMTAhZR.WyidZ0CIfNDk.XL7B7Z3.vnNs0MzbbG<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: SU<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:27<br/>', 'USUARIOS', '2024-04-16', '12:12:27', '2024-04-16 16:12:27', '2024-04-16 16:12:27'),
+(40, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$5CRqsK8lOWyBTgmMTAhZR.WyidZ0CIfNDk.XL7B7Z3.vnNs0MzbbG<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: SU<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:27<br/>', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$WuEMyQiB6flc4nYKVKx1R.kaQahftZRE/mWW68KnoesL8h4TOVm16<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: GA<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:31<br/>', 'USUARIOS', '2024-04-16', '12:12:31', '2024-04-16 16:12:31', '2024-04-16 16:12:31'),
+(41, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$WuEMyQiB6flc4nYKVKx1R.kaQahftZRE/mWW68KnoesL8h4TOVm16<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: GA<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:31<br/>', 'id: 2<br/>usuario: JPERES<br/>password: $2y$12$JYf5tQfnyULpD0k49W5ejubQbDEFzY9V3ipapW4kCrCInSkaS9oGG<br/>nombre: JUAN<br/>paterno: PERES<br/>materno: MAMANI<br/>ci: 1111<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: JUAN@GMAIL.COM<br/>fono: 77777777<br/>profesion: PROFESION #1<br/>cargo: GA<br/>nivel: A<br/>tipo: GERENTE AUDITOR<br/>foto: 1713283901_JPERES.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:11:41<br/>updated_at: 2024-04-16 12:12:38<br/>', 'USUARIOS', '2024-04-16', '12:12:38', '2024-04-16 16:12:38', '2024-04-16 16:12:38'),
+(42, 1, 'CREACIÓN', 'EL USUARIO admin REGISTRO UN USUARIO', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$dNoZ0MuPVbzNI9Bantnkv.i4TV8AQzzdYMQnlCWa1rZwKLUYOYlbq<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: AUDITOR<br/>foto: <br/>acceso: 0<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-16 12:13:07<br/>', NULL, 'USUARIOS', '2024-04-16', '12:13:07', '2024-04-16 16:13:07', '2024-04-16 16:13:07'),
+(43, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$dNoZ0MuPVbzNI9Bantnkv.i4TV8AQzzdYMQnlCWa1rZwKLUYOYlbq<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: AUDITOR<br/>foto: <br/>acceso: 0<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-16 12:13:07<br/>', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$gvX82w1VAp/qO2aHy/KDou93YMMKrikjID675524JNW10E/gxJ7Aa<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: AUDITOR<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-16 12:13:12<br/>', 'USUARIOS', '2024-04-16', '12:13:12', '2024-04-16 16:13:12', '2024-04-16 16:13:12'),
+(44, 1, 'CREACIÓN', 'EL USUARIO admin REGISTRO UN USUARIO', 'id: 4<br/>usuario: MMAMANI<br/>password: $2y$12$3CvihElPmuNTt2puLSWaEeI9IUDOVB6s4Gfb8qUGJqYoUBzDKEEwW<br/>nombre: MARIA<br/>paterno: MAMANI<br/>materno: <br/>ci: 3333<br/>ci_exp: CB<br/>sexo: MUJER<br/>nacionalidad: BOLIVIANA<br/>dir: LOS OLIVOS<br/>email: MARIA@GMAIL.COM<br/>fono: 67676767<br/>profesion: PROFESION #3<br/>cargo: SU<br/>nivel: B<br/>tipo: AUDITOR<br/>foto: 1713284044_MMAMANI.jpg<br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:14:04<br/>updated_at: 2024-04-16 12:14:04<br/>', NULL, 'USUARIOS', '2024-04-16', '12:14:04', '2024-04-16 16:14:04', '2024-04-16 16:14:04'),
+(45, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: TIPO TRABJO #1<br/>descripcion: DESC. TIPO TRABAJO 1<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:15:40<br/>updated_at: 2024-04-16 12:15:40<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:15:40', '2024-04-16 16:15:40', '2024-04-16 16:15:40'),
+(46, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 2<br/>nombre: TIPO TRABAJO #2<br/>descripcion: DESC. 2<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:15:46<br/>updated_at: 2024-04-16 12:15:46<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:15:46', '2024-04-16 16:15:46', '2024-04-16 16:15:46'),
+(47, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:39:37', '2024-04-16 16:39:37', '2024-04-16 16:39:37'),
+(48, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:22', '2024-04-16 16:43:22', '2024-04-16 16:43:22'),
+(49, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:30', '2024-04-16 16:43:30', '2024-04-16 16:43:30'),
+(50, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:35', '2024-04-16 16:43:35', '2024-04-16 16:43:35'),
+(51, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: CALENDARIO<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:43:42<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:42', '2024-04-16 16:43:42', '2024-04-16 16:43:42'),
+(52, 1, 'ELIMINACIÓN', 'EL USUARIO  ELIMINÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: CALENDARIO<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:43:42<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:49', '2024-04-16 16:43:49', '2024-04-16 16:43:49'),
+(53, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO #1<br/>objetivo: OBJETIVO #1<br/>periodo: 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-01<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:44:37<br/>updated_at: 2024-04-16 12:44:37<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:44:37', '2024-04-16 16:44:37', '2024-04-16 16:44:37');
 
 -- --------------------------------------------------------
 
@@ -314,6 +335,13 @@ CREATE TABLE `personal_trabajos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `personal_trabajos`
+--
+
+INSERT INTO `personal_trabajos` (`id`, `trabajo_auditoria_id`, `personal_id`, `horas`, `created_at`, `updated_at`) VALUES
+(1, 1, 3, 3, '2024-04-16 16:44:37', '2024-04-16 16:44:37');
+
 -- --------------------------------------------------------
 
 --
@@ -351,6 +379,14 @@ CREATE TABLE `tipo_trabajos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `tipo_trabajos`
+--
+
+INSERT INTO `tipo_trabajos` (`id`, `nombre`, `descripcion`, `fecha_registro`, `created_at`, `updated_at`) VALUES
+(1, 'TIPO TRABJO #1', 'DESC. TIPO TRABAJO 1', '2024-04-16', '2024-04-16 16:15:40', '2024-04-16 16:15:40'),
+(2, 'TIPO TRABAJO #2', 'DESC. 2', '2024-04-16', '2024-04-16 16:15:46', '2024-04-16 16:15:46');
+
 -- --------------------------------------------------------
 
 --
@@ -374,6 +410,13 @@ CREATE TABLE `trabajo_auditorias` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `trabajo_auditorias`
+--
+
+INSERT INTO `trabajo_auditorias` (`id`, `nombre`, `codigo`, `tipo_trabajo_id`, `empresa`, `responsable_id`, `objeto`, `objetivo`, `periodo`, `fecha_ini`, `duracion`, `fecha_entrega`, `fecha_registro`, `created_at`, `updated_at`) VALUES
+(1, 'AUDITORIA #1', 'COD-001', 1, 'EMPRESA #1', 2, 'OBJETO #1', 'OBJETIVO #1', '1-2024', '2024-03-03', 'HÁBILES', '2024-06-01', '2024-04-16', '2024-04-16 16:44:37', '2024-04-16 16:44:37');
 
 -- --------------------------------------------------------
 
@@ -411,7 +454,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `nombre`, `paterno`, `materno`, `ci`, `ci_exp`, `sexo`, `nacionalidad`, `dir`, `email`, `fono`, `profesion`, `cargo`, `nivel`, `tipo`, `foto`, `acceso`, `fecha_registro`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$12$tip597HRP5phPRM09dT/6OA2qgl3A8PoRzYswlhwiJ7SBCFhwS04i', 'admin', '', '', '0', '', '', '', '', 'admin@gmail.com', '', '', 'GERENTE', '', 'GERENTE AUDITOR', '', 1, '2024-04-08', '2024-04-08 21:10:09', '2024-04-08 21:10:09');
+(1, 'admin', '$2y$12$tip597HRP5phPRM09dT/6OA2qgl3A8PoRzYswlhwiJ7SBCFhwS04i', 'admin', '', '', '0', '', '', '', '', 'admin@gmail.com', '', '', 'GERENTE', '', 'GERENTE AUDITOR', '', 1, '2024-04-08', '2024-04-08 21:10:09', '2024-04-08 21:10:09'),
+(2, 'JPERES', '$2y$12$JYf5tQfnyULpD0k49W5ejubQbDEFzY9V3ipapW4kCrCInSkaS9oGG', 'JUAN', 'PERES', 'MAMANI', '1111', 'LP', 'HOMBRE', 'BOLIVIANO', 'LOS OLIVOS', 'JUAN@GMAIL.COM', '77777777', 'PROFESION #1', 'GA', 'A', 'GERENTE AUDITOR', '1713283901_JPERES.jpg', 1, '2024-04-16', '2024-04-16 16:11:41', '2024-04-16 16:12:38'),
+(3, 'MCORTEZ', '$2y$12$gvX82w1VAp/qO2aHy/KDou93YMMKrikjID675524JNW10E/gxJ7Aa', 'MARIO', 'CORTEZ', '', '2222', 'LP', 'HOMBRE', 'BOLIVIANO', 'LOS OLIVOS', '', '67676767', 'PROFESION #2', 'SU', 'B', 'AUDITOR', NULL, 1, '2024-04-16', '2024-04-16 16:13:07', '2024-04-16 16:13:12'),
+(4, 'MMAMANI', '$2y$12$3CvihElPmuNTt2puLSWaEeI9IUDOVB6s4Gfb8qUGJqYoUBzDKEEwW', 'MARIA', 'MAMANI', '', '3333', 'CB', 'MUJER', 'BOLIVIANA', 'LOS OLIVOS', 'MARIA@GMAIL.COM', '67676767', 'PROFESION #3', 'SU', 'B', 'AUDITOR', '1713284044_MMAMANI.jpg', 1, '2024-04-16', '2024-04-16 16:14:04', '2024-04-16 16:14:04');
 
 --
 -- Índices para tablas volcadas
@@ -558,7 +604,7 @@ ALTER TABLE `etapa_nombres`
 -- AUTO_INCREMENT de la tabla `historial_accions`
 --
 ALTER TABLE `historial_accions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `institucions`
@@ -612,7 +658,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `personal_trabajos`
 --
 ALTER TABLE `personal_trabajos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `publicacions`
@@ -624,19 +670,19 @@ ALTER TABLE `publicacions`
 -- AUTO_INCREMENT de la tabla `tipo_trabajos`
 --
 ALTER TABLE `tipo_trabajos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajo_auditorias`
 --
 ALTER TABLE `trabajo_auditorias`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

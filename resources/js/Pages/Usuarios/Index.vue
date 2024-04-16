@@ -47,11 +47,20 @@ const headers = ref([
     { title: "Usuario", key: "usuario", align: "start", sortable: false },
     { title: "Nombre", key: "full_name", align: "start", sortable: false },
     { title: "C.I.", key: "full_ci", align: "start", sortable: false },
+    { title: "Sexo", key: "sexo", align: "start", sortable: false },
+    {
+        title: "Nacionalidad",
+        key: "nacionalidad",
+        align: "start",
+        sortable: false,
+    },
     { title: "Dirección", key: "dir", align: "start", sortable: false },
     { title: "Correo", key: "email", align: "start", sortable: false },
     { title: "Teléfono/Celular", key: "fono", align: "start", sortable: false },
+    { title: "Profesión", key: "profesion", align: "start", sortable: false },
+    { title: "Cargo", key: "cargo", align: "start", sortable: false },
+    { title: "Nivel", key: "nivel", align: "start", sortable: false },
     { title: "Foto", key: "foto", align: "start", sortable: false },
-    { title: "Item", key: "item", align: "start", sortable: false },
     { title: "Tipo", key: "tipo", align: "start", sortable: false },
     { title: "Acceso", key: "acceso", align: "start", sortable: false },
     { title: "Acción", key: "accion", align: "end", sortable: false },
@@ -206,9 +215,14 @@ const eliminarUsuario = (item) => {
                                         {{ item.full_name }}
                                     </td>
                                     <td>{{ item.full_ci }}</td>
+                                    <td>{{ item.sexo }}</td>
+                                    <td>{{ item.nacionalidad }}</td>
                                     <td>{{ item.dir }}</td>
                                     <td>{{ item.email }}</td>
                                     <td>{{ item.fono }}</td>
+                                    <td>{{ item.profesion }}</td>
+                                    <td>{{ item.cargo }}</td>
+                                    <td>{{ item.nivel }}</td>
                                     <td>
                                         <v-avatar color="yellow-lighten-1">
                                             <v-img
@@ -221,9 +235,6 @@ const eliminarUsuario = (item) => {
                                                 item.iniciales_nombre
                                             }}</span>
                                         </v-avatar>
-                                    </td>
-                                    <td class="text-xs-right">
-                                        {{ item.item }}
                                     </td>
                                     <td class="text-xs-right">
                                         {{ item.tipo }}
@@ -303,6 +314,12 @@ const eliminarUsuario = (item) => {
                                             </li>
                                             <li
                                                 class="flex-item"
+                                                data-label="Nacionalidad"
+                                            >
+                                                {{ item.nacionalidad }}
+                                            </li>
+                                            <li
+                                                class="flex-item"
                                                 data-label="Dirección"
                                             >
                                                 {{ item.dir }}
@@ -321,6 +338,24 @@ const eliminarUsuario = (item) => {
                                             </li>
                                             <li
                                                 class="flex-item"
+                                                data-label="Profesión"
+                                            >
+                                                {{ item.profesion }}
+                                            </li>
+                                            <li
+                                                class="flex-item"
+                                                data-label="Cargo"
+                                            >
+                                                {{ item.cargo }}
+                                            </li>
+                                            <li
+                                                class="flex-item"
+                                                data-label="Nivel"
+                                            >
+                                                {{ item.nivel }}
+                                            </li>
+                                            <li
+                                                class="flex-item"
                                                 data-label="Foto"
                                             >
                                                 <v-avatar color="blue">
@@ -336,12 +371,6 @@ const eliminarUsuario = (item) => {
                                                         item.iniciales_nombre
                                                     }}</span>
                                                 </v-avatar>
-                                            </li>
-                                            <li
-                                                class="flex-item"
-                                                data-label="Item"
-                                            >
-                                                {{ item.item }}
                                             </li>
                                             <li
                                                 class="flex-item"

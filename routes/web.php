@@ -7,6 +7,8 @@ use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\TipoTrabajoController;
+use App\Http\Controllers\TrabajoAuditoriaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
@@ -92,6 +94,20 @@ Route::middleware('auth')->group(function () {
         ["index", "store"]
     );
 
+    // TIPOS DE TRABAJOS
+    Route::get("/tipo_trabajos/paginado", [TipoTrabajoController::class, 'paginado'])->name("tipo_trabajos.paginado");
+    Route::get("/tipo_trabajos/listado", [TipoTrabajoController::class, 'listado'])->name("tipo_trabajos.listado");
+    Route::resource("tipo_trabajos", TipoTrabajoController::class)->only(
+        ["index", "store", "update", "show", "destroy"]
+    );
+
+
+    // TRABAJOS DE AUDITORIAS
+    Route::get("/trabajo_auditorias/paginado", [TrabajoAuditoriaController::class, 'paginado'])->name("trabajo_auditorias.paginado");
+    Route::get("/trabajo_auditorias/listado", [TrabajoAuditoriaController::class, 'listado'])->name("trabajo_auditorias.listado");
+    Route::resource("trabajo_auditorias", TrabajoAuditoriaController::class)->only(
+        ["index", "create", "store", "edit", "update", "show", "destroy"]
+    );
 
     // REPORTES
     Route::get('reportes/usuarios', [ReporteController::class, 'usuarios'])->name("reportes.usuarios");
