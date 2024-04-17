@@ -59,6 +59,14 @@
 <script>
 export default {
     props: {
+        nro_etapa: {
+            type: Number,
+            default: 0,
+        },
+        nro_nombre: {
+            type: Number,
+            default: 0,
+        },
         files: {
             type: Array,
             default: [],
@@ -80,10 +88,21 @@ export default {
             if (this.archivos_existentes[index].id != 0) {
                 // existente en BD
                 this.eliminados.push(this.archivos_existentes[index].id);
-                this.$emit("addEliminados", this.eliminados);
+                console.log(this.eliminados);
+                this.$emit(
+                    "addEliminados",
+                    this.eliminados,
+                    this.nro_etapa,
+                    this.nro_nombre
+                );
             }
             this.archivos_existentes.splice(index, 1);
-            this.$emit("UpdateFiles", this.archivos_existentes);
+            this.$emit(
+                "UpdateFiles",
+                this.archivos_existentes,
+                this.nro_etapa,
+                this.nro_nombre
+            );
         },
         handleDrop(event) {
             event.preventDefault();
@@ -142,7 +161,12 @@ export default {
                         url_file: e.target.result,
                         file: file,
                     });
-                    this.$emit("UpdateFiles", [...this.archivos_existentes]);
+                    this.$emit(
+                        "UpdateFiles",
+                        [...this.archivos_existentes],
+                        this.nro_etapa,
+                        this.nro_nombre
+                    );
                 };
             } else {
                 this.archivos_existentes.push({
@@ -151,7 +175,12 @@ export default {
                     url_file: url_assets + "/imgs/attach.png",
                     file: file,
                 });
-                this.$emit("UpdateFiles", [...this.archivos_existentes]);
+                this.$emit(
+                    "UpdateFiles",
+                    [...this.archivos_existentes],
+                    this.nro_etapa,
+                    this.nro_nombre
+                );
             }
             reader.readAsDataURL(file);
         },

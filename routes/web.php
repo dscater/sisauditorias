@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EtapaAuditoriaController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\MultimediaController;
@@ -106,6 +107,14 @@ Route::middleware('auth')->group(function () {
     Route::get("/trabajo_auditorias/paginado", [TrabajoAuditoriaController::class, 'paginado'])->name("trabajo_auditorias.paginado");
     Route::get("/trabajo_auditorias/listado", [TrabajoAuditoriaController::class, 'listado'])->name("trabajo_auditorias.listado");
     Route::resource("trabajo_auditorias", TrabajoAuditoriaController::class)->only(
+        ["index", "create", "store", "edit", "update", "show", "destroy"]
+    );
+
+
+    // ETAPAS DE AUDITORIAS
+    Route::get("/etapa_auditorias/paginado", [EtapaAuditoriaController::class, 'paginado'])->name("etapa_auditorias.paginado");
+    Route::get("/etapa_auditorias/listado", [EtapaAuditoriaController::class, 'listado'])->name("etapa_auditorias.listado");
+    Route::resource("etapa_auditorias", EtapaAuditoriaController::class)->only(
         ["index", "create", "store", "edit", "update", "show", "destroy"]
     );
 

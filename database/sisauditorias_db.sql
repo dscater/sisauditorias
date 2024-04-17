@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 16-04-2024 a las 16:44:46
+-- Tiempo de generación: 17-04-2024 a las 19:02:44
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -36,6 +36,16 @@ CREATE TABLE `etapa_archivos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `etapa_archivos`
+--
+
+INSERT INTO `etapa_archivos` (`id`, `etapa_nombre_id`, `archivo`, `ext`, `created_at`, `updated_at`) VALUES
+(1, 1, '1713380549_01.pdf', 'pdf', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(2, 1, '1713380549_11.pdf', 'pdf', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(3, 2, '1713380549_02.docx', 'docx', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(4, 3, '1713380549_03.pdf', 'pdf', '2024-04-17 19:02:29', '2024-04-17 19:02:29');
+
 -- --------------------------------------------------------
 
 --
@@ -45,9 +55,17 @@ CREATE TABLE `etapa_archivos` (
 CREATE TABLE `etapa_auditorias` (
   `id` bigint UNSIGNED NOT NULL,
   `trabajo_auditoria_id` bigint UNSIGNED NOT NULL,
+  `fecha_registro` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `etapa_auditorias`
+--
+
+INSERT INTO `etapa_auditorias` (`id`, `trabajo_auditoria_id`, `fecha_registro`, `created_at`, `updated_at`) VALUES
+(1, 1, '2024-04-17', '2024-04-17 19:02:29', '2024-04-17 19:02:29');
 
 -- --------------------------------------------------------
 
@@ -63,6 +81,16 @@ CREATE TABLE `etapa_nombres` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `etapa_nombres`
+--
+
+INSERT INTO `etapa_nombres` (`id`, `etapa_auditoria_id`, `nro_etapa`, `nombre`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'PLANIFICACION #1', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(2, 1, 1, 'PLANIFICACION #2', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(3, 1, 2, 'EJECUCION #1', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(4, 1, 3, 'DICTAMEN #1', '2024-04-17 19:02:29', '2024-04-17 19:02:29');
 
 -- --------------------------------------------------------
 
@@ -139,7 +167,24 @@ INSERT INTO `historial_accions` (`id`, `user_id`, `accion`, `descripcion`, `dato
 (50, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:35', '2024-04-16 16:43:35', '2024-04-16 16:43:35'),
 (51, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:39:37<br/>', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: CALENDARIO<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:43:42<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:42', '2024-04-16 16:43:42', '2024-04-16 16:43:42'),
 (52, 1, 'ELIMINACIÓN', 'EL USUARIO  ELIMINÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-0001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO<br/>objetivo: OBJETIVO<br/>periodo: PERIODO 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: CALENDARIO<br/>fecha_entrega: 2024-06-06<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:39:37<br/>updated_at: 2024-04-16 12:43:42<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:43:49', '2024-04-16 16:43:49', '2024-04-16 16:43:49'),
-(53, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO #1<br/>objetivo: OBJETIVO #1<br/>periodo: 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-01<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:44:37<br/>updated_at: 2024-04-16 12:44:37<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:44:37', '2024-04-16 16:44:37', '2024-04-16 16:44:37');
+(53, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>nombre: AUDITORIA #1<br/>codigo: COD-001<br/>tipo_trabajo_id: 1<br/>empresa: EMPRESA #1<br/>responsable_id: 2<br/>objeto: OBJETO #1<br/>objetivo: OBJETIVO #1<br/>periodo: 1-2024<br/>fecha_ini: 2024-03-03<br/>duracion: HÁBILES<br/>fecha_entrega: 2024-06-01<br/>fecha_registro: 2024-04-16<br/>created_at: 2024-04-16 12:44:37<br/>updated_at: 2024-04-16 12:44:37<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-16', '12:44:37', '2024-04-16 16:44:37', '2024-04-16 16:44:37'),
+(57, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 4<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:02:32<br/>updated_at: 2024-04-17 14:02:32<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:02:32', '2024-04-17 18:02:32', '2024-04-17 18:02:32'),
+(60, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 7<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:26:45<br/>updated_at: 2024-04-17 14:26:45<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:26:45', '2024-04-17 18:26:45', '2024-04-17 18:26:45'),
+(61, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 8<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:32:15<br/>updated_at: 2024-04-17 14:32:15<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:32:15', '2024-04-17 18:32:15', '2024-04-17 18:32:15'),
+(65, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:40:01', '2024-04-17 18:40:01', '2024-04-17 18:40:01'),
+(67, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:46:55', '2024-04-17 18:46:55', '2024-04-17 18:46:55'),
+(68, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:47:02', '2024-04-17 18:47:02', '2024-04-17 18:47:02'),
+(70, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:47:47', '2024-04-17 18:47:47', '2024-04-17 18:47:47'),
+(71, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'id: 12<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:40:01<br/>updated_at: 2024-04-17 14:40:01<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:48:03', '2024-04-17 18:48:03', '2024-04-17 18:48:03'),
+(72, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:50:19', '2024-04-17 18:50:19', '2024-04-17 18:50:19'),
+(73, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:51:36', '2024-04-17 18:51:36', '2024-04-17 18:51:36'),
+(75, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:52:27', '2024-04-17 18:52:27', '2024-04-17 18:52:27'),
+(76, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:52:39', '2024-04-17 18:52:39', '2024-04-17 18:52:39'),
+(77, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:54:17', '2024-04-17 18:54:17', '2024-04-17 18:54:17'),
+(78, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:54:35', '2024-04-17 18:54:35', '2024-04-17 18:54:35'),
+(79, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:00:13', '2024-04-17 19:00:13', '2024-04-17 19:00:13'),
+(80, 1, 'ELIMINACIÓN', 'EL USUARIO  ELIMINÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:01:41', '2024-04-17 19:01:41', '2024-04-17 19:01:41'),
+(81, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 15:02:29<br/>updated_at: 2024-04-17 15:02:29<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:02:29', '2024-04-17 19:02:29', '2024-04-17 19:02:29');
 
 -- --------------------------------------------------------
 
@@ -586,25 +631,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `etapa_archivos`
 --
 ALTER TABLE `etapa_archivos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `etapa_auditorias`
 --
 ALTER TABLE `etapa_auditorias`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `etapa_nombres`
 --
 ALTER TABLE `etapa_nombres`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_accions`
 --
 ALTER TABLE `historial_accions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT de la tabla `institucions`
