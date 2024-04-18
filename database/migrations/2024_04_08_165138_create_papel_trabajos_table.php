@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('papel_trabajos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("trabajo_auditoria_id");
+            $table->date("fecha_registro");
             $table->timestamps();
-            
+
             $table->foreign("trabajo_auditoria_id")->on("trabajo_auditorias")->references("id");
         });
     }

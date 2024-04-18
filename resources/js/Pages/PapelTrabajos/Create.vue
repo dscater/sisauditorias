@@ -7,10 +7,10 @@ const breadbrums = [
         name_url: "inicio",
     },
     {
-        title: "Etapas de la Auditoría",
+        title: "Papeles de Trabajo",
         disabled: false,
-        url: route("etapa_auditorias.index"),
-        name_url: "etapa_auditorias.index",
+        url: route("papel_trabajos.index"),
+        name_url: "papel_trabajos.index",
     },
     {
         title: "Nuevo",
@@ -26,12 +26,12 @@ import { useApp } from "@/composables/useApp";
 import { Head } from "@inertiajs/vue3";
 import { onMounted } from "vue";
 import { useMenu } from "@/composables/useMenu";
-import { useEtapaAuditorias } from "@/composables/etapa_auditorias/useEtapaAuditorias";
+import { usePapelTrabajos } from "@/composables/papel_trabajos/usePapelTrabajos";
 import Formulario from "./parcials/Formulario.vue";
 const { mobile, identificaDispositivo } = useMenu();
 const { setLoading } = useApp();
-const { oEtapaAuditoria, limpiarEtapaAuditoria } = useEtapaAuditorias();
-limpiarEtapaAuditoria();
+const { oPapelTrabajo, limpiarPapelTrabajo } = usePapelTrabajos();
+limpiarPapelTrabajo();
 onMounted(() => {
     setTimeout(() => {
         setLoading(false);
@@ -39,7 +39,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <Head title="Etapas de la Auditoría"></Head>
+    <Head title="Papeles de Trabajo"></Head>
     <v-container>
         <BreadBrums :breadbrums="breadbrums"></BreadBrums>
         <v-row class="mt-0">

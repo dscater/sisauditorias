@@ -135,9 +135,9 @@ class EtapaAuditoriaController extends Controller
             HistorialAccion::create([
                 'user_id' => Auth::user()->id,
                 'accion' => 'CREACIÓN',
-                'descripcion' => 'EL USUARIO ' . Auth::user()->etapa_auditoria . ' REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA',
+                'descripcion' => 'EL USUARIO ' . Auth::user()->etapa_auditoria . ' REGISTRO UNA ETAPA DE AUDITORÍA',
                 'datos_original' => $datos_original,
-                'modulo' => 'TIPO DE TRABAJOS DE AUDITORIAS',
+                'modulo' => 'ETAPA DE AUDITORÍAS',
                 'fecha' => date('Y-m-d'),
                 'hora' => date('H:i:s')
             ]);
@@ -297,10 +297,10 @@ class EtapaAuditoriaController extends Controller
             HistorialAccion::create([
                 'user_id' => Auth::user()->id,
                 'accion' => 'MODIFICACIÓN',
-                'descripcion' => 'EL USUARIO ' . Auth::user()->etapa_auditoria . ' MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA',
+                'descripcion' => 'EL USUARIO ' . Auth::user()->etapa_auditoria . ' MODIFICÓ UNA ETAPA DE AUDITORÍA',
                 'datos_original' => $datos_original,
                 'datos_nuevo' => $datos_nuevo,
-                'modulo' => 'TIPO DE TRABAJOS DE AUDITORIAS',
+                'modulo' => 'ETAPA DE AUDITORÍAS',
                 'fecha' => date('Y-m-d'),
                 'hora' => date('H:i:s')
             ]);
@@ -362,6 +362,10 @@ class EtapaAuditoriaController extends Controller
                         ]);
                     } else {
                         $etapa_nombre = EtapaNombre::find($item["id"]);
+                        $etapa_nombre->update([
+                            "nro_etapa" => $item["nro_etapa"],
+                            "nombre" => mb_strtoupper($item["nombre"]),
+                        ]);
                     }
 
                     if (isset($item["eliminados"])) {
@@ -397,6 +401,10 @@ class EtapaAuditoriaController extends Controller
                         ]);
                     } else {
                         $etapa_nombre = EtapaNombre::find($item["id"]);
+                        $etapa_nombre->update([
+                            "nro_etapa" => $item["nro_etapa"],
+                            "nombre" => mb_strtoupper($item["nombre"]),
+                        ]);
                     }
 
                     if (isset($item["eliminados"])) {
@@ -449,9 +457,9 @@ class EtapaAuditoriaController extends Controller
             HistorialAccion::create([
                 'user_id' => Auth::user()->id,
                 'accion' => 'ELIMINACIÓN',
-                'descripcion' => 'EL USUARIO ' . Auth::user()->etapa_auditoria . ' ELIMINÓ UN TIPO DE TRABAJOS DE AUDITORIA',
+                'descripcion' => 'EL USUARIO ' . Auth::user()->etapa_auditoria . ' ELIMINÓ UNA ETAPA DE AUDITORÍA',
                 'datos_original' => $datos_original,
-                'modulo' => 'TIPO DE TRABAJOS DE AUDITORIAS',
+                'modulo' => 'ETAPA DE AUDITORÍAS',
                 'fecha' => date('Y-m-d'),
                 'hora' => date('H:i:s')
             ]);

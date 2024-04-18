@@ -7,7 +7,7 @@ const breadbrums = [
         name_url: "inicio",
     },
     {
-        title: "EtapaAuditoria",
+        title: "Etapas de la Auditoría",
         disabled: false,
         url: route("etapa_auditorias.index"),
         name_url: "etapa_auditorias.index",
@@ -46,7 +46,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <Head title="EtapaAuditorias"></Head>
+    <Head title="Etapas de la Auditoría"></Head>
     <v-container>
         <BreadBrums :breadbrums="breadbrums"></BreadBrums>
         <v-row class="mt-0">

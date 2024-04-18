@@ -5,6 +5,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\PapelTrabajoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ReporteController;
@@ -110,11 +111,18 @@ Route::middleware('auth')->group(function () {
         ["index", "create", "store", "edit", "update", "show", "destroy"]
     );
 
-
     // ETAPAS DE AUDITORIAS
     Route::get("/etapa_auditorias/paginado", [EtapaAuditoriaController::class, 'paginado'])->name("etapa_auditorias.paginado");
     Route::get("/etapa_auditorias/listado", [EtapaAuditoriaController::class, 'listado'])->name("etapa_auditorias.listado");
     Route::resource("etapa_auditorias", EtapaAuditoriaController::class)->only(
+        ["index", "create", "store", "edit", "update", "show", "destroy"]
+    );
+
+
+    // PAPELES DE TRABAJO
+    Route::get("/papel_trabajos/paginado", [PapelTrabajoController::class, 'paginado'])->name("papel_trabajos.paginado");
+    Route::get("/papel_trabajos/listado", [PapelTrabajoController::class, 'listado'])->name("papel_trabajos.listado");
+    Route::resource("papel_trabajos", PapelTrabajoController::class)->only(
         ["index", "create", "store", "edit", "update", "show", "destroy"]
     );
 

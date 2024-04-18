@@ -70,6 +70,25 @@ class TrabajoAuditoriaController extends Controller
             }
         }
 
+        if ($request->sin_papeles) {
+            if ($request->id && $request->id != '') {
+                $trabajo_auditorias = $trabajo_auditorias->whereNotExists(function ($query) {
+                    $query->select(DB::raw(1))
+                        ->from('papel_trabajos')
+                        ->whereRaw('papel_trabajos.trabajo_auditoria_id = trabajo_auditorias.id');
+                })->orWhere(function ($subquery) use ($request) {
+                    $subquery->whereIn('trabajo_auditorias.id', [$request->id]);
+                });
+            } else {
+                $trabajo_auditorias = $trabajo_auditorias->whereNotExists(function ($query) {
+                    $query->select(DB::raw(1))
+                        ->from('papel_trabajos')
+                        ->whereRaw('papel_trabajos.trabajo_auditoria_id = trabajo_auditorias.id');
+                });
+            }
+        }
+
+
         if ($request->order && $request->order == "desc") {
             $trabajo_auditorias->orderBy("trabajo_auditorias.id", $request->order);
         }

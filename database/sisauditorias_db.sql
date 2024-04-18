@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 17-04-2024 a las 19:02:44
+-- Tiempo de generación: 18-04-2024 a las 16:21:36
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -184,7 +184,10 @@ INSERT INTO `historial_accions` (`id`, `user_id`, `accion`, `descripcion`, `dato
 (78, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '14:54:35', '2024-04-17 18:54:35', '2024-04-17 18:54:35'),
 (79, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:00:13', '2024-04-17 19:00:13', '2024-04-17 19:00:13'),
 (80, 1, 'ELIMINACIÓN', 'EL USUARIO  ELIMINÓ UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 14:50:19<br/>updated_at: 2024-04-17 14:50:19<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:01:41', '2024-04-17 19:01:41', '2024-04-17 19:01:41'),
-(81, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 15:02:29<br/>updated_at: 2024-04-17 15:02:29<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:02:29', '2024-04-17 19:02:29', '2024-04-17 19:02:29');
+(81, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 15:02:29<br/>updated_at: 2024-04-17 15:02:29<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:02:29', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
+(84, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', NULL, 'PAPELES DE TRABAJOS', '2024-04-18', '12:18:36', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(85, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-18', '12:19:42', '2024-04-18 16:19:42', '2024-04-18 16:19:42'),
+(86, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-18', '12:19:57', '2024-04-18 16:19:57', '2024-04-18 16:19:57');
 
 -- --------------------------------------------------------
 
@@ -316,6 +319,15 @@ CREATE TABLE `papel_archivos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `papel_archivos`
+--
+
+INSERT INTO `papel_archivos` (`id`, `papel_detalle_id`, `archivo`, `ext`, `created_at`, `updated_at`) VALUES
+(1, 2, '1713457116_02.pdf', 'pdf', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(2, 2, '1713457116_12.pdf', 'pdf', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(3, 25, '1713457116_025.docx', 'docx', '2024-04-18 16:18:36', '2024-04-18 16:18:36');
+
 -- --------------------------------------------------------
 
 --
@@ -333,6 +345,36 @@ CREATE TABLE `papel_detalles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `papel_detalles`
+--
+
+INSERT INTO `papel_detalles` (`id`, `papel_trabajo_id`, `nro_etapa`, `nro_nombre`, `aplicabilidad`, `estado`, `created_at`, `updated_at`) VALUES
+(2, 3, 1, 1, 'SI', 'EN PROCESO', '2024-04-18 16:18:36', '2024-04-18 16:19:42'),
+(3, 3, 1, 2, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(4, 3, 1, 3, 'NO', 'APROBADO GERENTE AUDITOR', '2024-04-18 16:18:36', '2024-04-18 16:19:57'),
+(5, 3, 1, 4, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(6, 3, 1, 5, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(7, 3, 1, 6, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(8, 3, 1, 7, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(9, 3, 2, 1, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(10, 3, 2, 2, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(11, 3, 2, 3, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(12, 3, 2, 4, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(13, 3, 2, 5, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(14, 3, 2, 6, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(15, 3, 2, 7, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(16, 3, 2, 8, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(17, 3, 2, 9, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(18, 3, 2, 10, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(19, 3, 2, 11, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(20, 3, 2, 12, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(21, 3, 2, 13, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(22, 3, 2, 14, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(23, 3, 2, 15, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(24, 3, 2, 16, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(25, 3, 3, 0, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36');
+
 -- --------------------------------------------------------
 
 --
@@ -342,9 +384,17 @@ CREATE TABLE `papel_detalles` (
 CREATE TABLE `papel_trabajos` (
   `id` bigint UNSIGNED NOT NULL,
   `trabajo_auditoria_id` bigint UNSIGNED NOT NULL,
+  `fecha_registro` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `papel_trabajos`
+--
+
+INSERT INTO `papel_trabajos` (`id`, `trabajo_auditoria_id`, `fecha_registro`, `created_at`, `updated_at`) VALUES
+(3, 1, '2024-04-18', '2024-04-18 16:18:36', '2024-04-18 16:18:36');
 
 -- --------------------------------------------------------
 
@@ -649,7 +699,7 @@ ALTER TABLE `etapa_nombres`
 -- AUTO_INCREMENT de la tabla `historial_accions`
 --
 ALTER TABLE `historial_accions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT de la tabla `institucions`
@@ -679,19 +729,19 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de la tabla `papel_archivos`
 --
 ALTER TABLE `papel_archivos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `papel_detalles`
 --
 ALTER TABLE `papel_detalles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `papel_trabajos`
 --
 ALTER TABLE `papel_trabajos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`

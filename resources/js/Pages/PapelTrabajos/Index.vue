@@ -7,7 +7,7 @@ const breadbrums = [
         name_url: "inicio",
     },
     {
-        title: "Etapas de la Auditoría",
+        title: "Papeles de Trabajo",
         disabled: false,
         url: "",
         name_url: "",
@@ -19,7 +19,7 @@ import BreadBrums from "@/Components/BreadBrums.vue";
 import { useApp } from "@/composables/useApp";
 import { useMenu } from "@/composables/useMenu";
 import { Head, usePage } from "@inertiajs/vue3";
-import { useEtapaAuditorias } from "@/composables/etapa_auditorias/useEtapaAuditorias";
+import { usePapelTrabajos } from "@/composables/papel_trabajos/usePapelTrabajos";
 import { ref, onMounted } from "vue";
 const { mobile, identificaDispositivo, cambiarUrl } = useMenu();
 const { setLoading } = useApp();
@@ -31,9 +31,9 @@ onMounted(() => {
     }, 300);
 });
 
-const { getEtapaAuditoriasApi, deleteEtapaAuditoria } = useEtapaAuditorias();
-const responseEtapaAuditorias = ref([]);
-const listEtapaAuditorias = ref([]);
+const { getPapelTrabajosApi, deletePapelTrabajo } = usePapelTrabajos();
+const responsePapelTrabajos = ref([]);
+const listPapelTrabajos = ref([]);
 const itemsPerPage = ref(5);
 const headers = ref([
     {
@@ -74,31 +74,31 @@ const loadItems = async ({ page, itemsPerPage, sortBy }) => {
 
     clearInterval(setTimeOutLoadData);
     setTimeOutLoadData = setTimeout(async () => {
-        responseEtapaAuditorias.value = await getEtapaAuditoriasApi(
+        responsePapelTrabajos.value = await getPapelTrabajosApi(
             options.value
         );
-        listEtapaAuditorias.value = responseEtapaAuditorias.value.data;
-        totalItems.value = parseInt(responseEtapaAuditorias.value.total);
+        listPapelTrabajos.value = responsePapelTrabajos.value.data;
+        totalItems.value = parseInt(responsePapelTrabajos.value.total);
         loading.value = false;
     }, 300);
 };
-const recargaEtapaAuditorias = async () => {
+const recargaPapelTrabajos = async () => {
     loading.value = true;
-    listEtapaAuditorias.value = [];
+    listPapelTrabajos.value = [];
     options.value.search = search.value;
-    responseEtapaAuditorias.value = await getEtapaAuditoriasApi(options.value);
-    listEtapaAuditorias.value = responseEtapaAuditorias.value.data;
-    totalItems.value = parseInt(responseEtapaAuditorias.value.total);
+    responsePapelTrabajos.value = await getPapelTrabajosApi(options.value);
+    listPapelTrabajos.value = responsePapelTrabajos.value.data;
+    totalItems.value = parseInt(responsePapelTrabajos.value.total);
     setTimeout(() => {
         loading.value = false;
     }, 300);
 };
 
-const editarEtapaAuditoria = (item) => {
-    cambiarUrl(route("etapa_auditorias.edit", item.id));
+const editarPapelTrabajo = (item) => {
+    cambiarUrl(route("papel_trabajos.edit", item.id));
 };
 
-const eliminarEtapaAuditoria = (item) => {
+const eliminarPapelTrabajo = (item) => {
     Swal.fire({
         title: "¿Quierés eliminar este registro?",
         html: `<strong>${item.trabajo_auditoria.nombre}</strong>`,
@@ -110,9 +110,9 @@ const eliminarEtapaAuditoria = (item) => {
     }).then(async (result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            let respuesta = await deleteEtapaAuditoria(item.id);
+            let respuesta = await deletePapelTrabajo(item.id);
             if (respuesta && respuesta.sw) {
-                recargaEtapaAuditorias();
+                recargaPapelTrabajos();
             }
         }
     });
@@ -120,7 +120,7 @@ const eliminarEtapaAuditoria = (item) => {
 const verUbicación = async (item) => {};
 </script>
 <template>
-    <Head title="Etapas de la Auditoría"></Head>
+    <Head title="Papeles de Trabajo"></Head>
     <v-container>
         <BreadBrums :breadbrums="breadbrums"></BreadBrums>
         <v-row class="mt-0">
@@ -128,12 +128,12 @@ const verUbicación = async (item) => {};
                 <v-btn
                     v-if="
                         props.auth.user.permisos.includes(
-                            'etapa_auditorias.create'
+                            'papel_trabajos.create'
                         )
                     "
                     class="bg-principal"
                     prepend-icon="mdi-plus"
-                    @click="cambiarUrl(route('etapa_auditorias.create'))"
+                    @click="cambiarUrl(route('papel_trabajos.create'))"
                 >
                     Agregar</v-btn
                 >
@@ -145,7 +145,7 @@ const verUbicación = async (item) => {};
                     <v-card-title>
                         <v-row class="bg-principal d-flex align-center pa-3">
                             <v-col cols="12" sm="6" md="4">
-                                Etapas de la Auditoría
+                                Papeles de Trabajo
                             </v-col>
                             <v-col cols="12" sm="6" md="4" offset-md="4">
                                 <v-text-field
@@ -165,7 +165,7 @@ const verUbicación = async (item) => {};
                             :headers="!mobile ? headers : []"
                             :class="[mobile ? 'mobile' : '']"
                             :items-length="totalItems"
-                            :items="listEtapaAuditorias"
+                            :items="listPapelTrabajos"
                             :loading="loading"
                             :search="search"
                             @update:options="loadItems"
@@ -198,28 +198,28 @@ const verUbicación = async (item) => {};
                                             <v-btn
                                                 v-if="
                                                     props.auth.user.permisos.includes(
-                                                        'etapa_auditorias.edit'
+                                                        'papel_trabajos.edit'
                                                     )
                                                 "
                                                 color="yellow"
                                                 size="small"
                                                 class="pa-1 ma-1"
                                                 @click="
-                                                    editarEtapaAuditoria(item)
+                                                    editarPapelTrabajo(item)
                                                 "
                                                 icon="mdi-pencil"
                                             ></v-btn>
                                             <v-btn
                                                 v-if="
                                                     props.auth.user.permisos.includes(
-                                                        'etapa_auditorias.destroy'
+                                                        'papel_trabajos.destroy'
                                                     )
                                                 "
                                                 color="error"
                                                 size="small"
                                                 class="pa-1 ma-1"
                                                 @click="
-                                                    eliminarEtapaAuditoria(item)
+                                                    eliminarPapelTrabajo(item)
                                                 "
                                                 icon="mdi-trash-can"
                                             ></v-btn>
@@ -263,14 +263,14 @@ const verUbicación = async (item) => {};
                                                     <v-btn
                                                         v-if="
                                                             props.auth.user.permisos.includes(
-                                                                'etapa_auditorias.edit'
+                                                                'papel_trabajos.edit'
                                                             )
                                                         "
                                                         color="yellow"
                                                         size="small"
                                                         class="pa-1 ma-1"
                                                         @click="
-                                                            editarEtapaAuditoria(
+                                                            editarPapelTrabajo(
                                                                 item
                                                             )
                                                         "
@@ -279,14 +279,14 @@ const verUbicación = async (item) => {};
                                                     <v-btn
                                                         v-if="
                                                             props.auth.user.permisos.includes(
-                                                                'etapa_auditorias.destroy'
+                                                                'papel_trabajos.destroy'
                                                             )
                                                         "
                                                         color="error"
                                                         size="small"
                                                         class="pa-1 ma-1"
                                                         @click="
-                                                            eliminarEtapaAuditoria(
+                                                            eliminarPapelTrabajo(
                                                                 item
                                                             )
                                                         "

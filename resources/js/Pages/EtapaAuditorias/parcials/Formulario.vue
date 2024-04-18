@@ -110,9 +110,10 @@ const detectaEliminados = (eliminados, nro_etapa, nro_nombre) => {
 
 onMounted(() => {
     if (form.id && form.id != "") {
-        cargarListas(form.id);
+        cargarListas(form.trabajo_auditoria_id);
+    }else{
+        cargarListas();
     }
-    cargarListas();
 });
 </script>
 
