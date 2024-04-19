@@ -193,7 +193,11 @@ const scrollActive = () => {
             </v-list-item>
             <v-list-item
                 :class="[
-                    route_current == 'etapa_auditorias.index' ? 'active' : '',
+                    route_current == 'etapa_auditorias.index' ||
+                    route_current == 'etapa_auditorias.create' ||
+                    route_current == 'etapa_auditorias.edit'
+                        ? 'active'
+                        : '',
                 ]"
                 v-if="oUser.permisos.includes('etapa_auditorias.index')"
                 prepend-icon="mdi-view-list"
@@ -211,7 +215,11 @@ const scrollActive = () => {
             </v-list-item>
             <v-list-item
                 :class="[
-                    route_current == 'papel_trabajos.index' ? 'active' : '',
+                    route_current == 'papel_trabajos.index' ||
+                    route_current == 'papel_trabajos.create' ||
+                    route_current == 'papel_trabajos.edit'
+                        ? 'active'
+                        : '',
                 ]"
                 v-if="oUser.permisos.includes('papel_trabajos.index')"
                 prepend-icon="mdi-folder-file"
@@ -248,7 +256,7 @@ const scrollActive = () => {
                 class="text-caption"
                 v-if="
                     oUser.permisos.includes('reportes.usuarios') ||
-                    oUser.permisos.includes('reportes.trabajo_auditorias')||
+                    oUser.permisos.includes('reportes.trabajo_auditorias') ||
                     oUser.permisos.includes('reportes.g_trabajo_auditorias')
                 "
                 ><span v-if="rail && !mobile" class="text-center d-block"
@@ -308,11 +316,15 @@ const scrollActive = () => {
                     ></v-list-item
                 >
                 <v-list-item
-                    v-if="oUser.permisos.includes('reportes.trabajo_auditorias')"
+                    v-if="
+                        oUser.permisos.includes('reportes.trabajo_auditorias')
+                    "
                     prepend-icon="mdi-chevron-right"
                     title="Trabajos de Auditoría"
                     :class="[
-                        route_current == 'reportes.trabajo_auditorias' ? 'active' : '',
+                        route_current == 'reportes.trabajo_auditorias'
+                            ? 'active'
+                            : '',
                     ]"
                     @click="cambiarUrl(route('reportes.trabajo_auditorias'))"
                     link
@@ -326,11 +338,15 @@ const scrollActive = () => {
                     ></v-list-item
                 >
                 <v-list-item
-                    v-if="oUser.permisos.includes('reportes.g_trabajo_auditorias')"
+                    v-if="
+                        oUser.permisos.includes('reportes.g_trabajo_auditorias')
+                    "
                     prepend-icon="mdi-chevron-right"
                     title="Estados y Cantidad de Trabajos de Auditoría"
                     :class="[
-                        route_current == 'reportes.g_trabajo_auditorias' ? 'active' : '',
+                        route_current == 'reportes.g_trabajo_auditorias'
+                            ? 'active'
+                            : '',
                     ]"
                     @click="cambiarUrl(route('reportes.g_trabajo_auditorias'))"
                     link
@@ -425,9 +441,7 @@ const scrollActive = () => {
                     v-if="oUser.permisos.includes('noticias.index')"
                     prepend-icon="mdi-chevron-right"
                     title="Noticias"
-                    :class="[
-                        route_current == 'noticias.index' ? 'active' : '',
-                    ]"
+                    :class="[route_current == 'noticias.index' ? 'active' : '']"
                     @click="cambiarUrl(route('noticias.index'))"
                     link
                 >

@@ -11,6 +11,7 @@ use App\Models\TrabajoAuditoria;
 use App\Models\UnidadArea;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use PDF;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -77,8 +78,11 @@ class ReporteController extends Controller
                 // buscar si tiene papeles
                 $papel_trabajo = PapelTrabajo::where("trabajo_auditoria_id", $item->id)->get()->first();
                 if ($papel_trabajo) {
-                    $total_detalles = count($papel_trabajo->papel_detalles);
+                    $total_detalles = count(apelDetalle::where("papel_trabajo_id", $papel_trabajo->id)
+                        ->where("nro_etapa", "!=", 3)
+                        ->get());
                     $detalles_estado = PapelDetalle::where("papel_trabajo_id", $papel_trabajo->id)
+                        ->where("nro_etapa", "!=", 3)
                         ->where("estado", $estado)
                         ->get();
                     if ($estado != 'EN PROCESO') {
@@ -89,7 +93,7 @@ class ReporteController extends Controller
                         $trabajo_auditorias[] = $item;
                     }
                 } else {
-                    if ($estado == 'EN PROCESO') {
+                    if ($estado == 'NO INICIADO') {
                         $trabajo_auditorias[] = $item;
                     }
                 }
@@ -119,8 +123,83 @@ class ReporteController extends Controller
 
     public function r_g_trabajo_auditorias(Request $request)
     {
-        $tipo =  $request->tipo;
+        $tipo_trabajo_id =  $request->tipo_trabajo_id;
+        $trabajo_id =  $request->trabajo_id;
+        $estado =  $request->estado;
 
-        return response()->JSON([]);
+        $estados = [
+            "NO INICIADO",
+            "EN PROCESO",
+            "TERMINADO AUDITOR",
+            "REVISADO POR SUPERVISOR",
+            "APROBADO GERENTE AUDITOR",
+        ];
+
+        if ($estado != 'todos') {
+            $estados = [$estado];
+        }
+
+        $data = [];
+
+        foreach ($estados as $value) {
+            $trabajo_auditorias = TrabajoAuditoria::select("trabajo_auditorias.*");
+
+            if ($tipo_trabajo_id != 'todos') {
+                $trabajo_auditorias->where("tipo_trabajo_id", $tipo_trabajo_id);
+            }
+            if ($trabajo_id != 'todos') {
+                $trabajo_auditorias->where("id", $trabajo_id);
+            }
+            $trabajo_auditorias = $trabajo_auditorias->get();
+
+            $total_registros = 0;
+
+            foreach ($trabajo_auditorias as $trabajo_auditoria) {
+                $papel_trabajo = PapelTrabajo::where("trabajo_auditoria_id", $trabajo_auditoria->id)->get()->first();
+                if ($papel_trabajo) {
+                    $total_detalles = PapelDetalle::where("papel_trabajo_id", $papel_trabajo->id)
+                        ->where("nro_etapa", "!=", 3)
+                        ->pluck('estado') // Obtener solo los valores de la columna 'estado'
+                        ->unique() // Obtener valores únicos
+                        ->count();
+
+                    $detalles_estado = PapelDetalle::where("papel_trabajo_id", $papel_trabajo->id)
+                        ->where("nro_etapa", "!=", 3)
+                        ->where("estado", $value)
+                        ->pluck('estado') // Obtener solo los valores de la columna 'estado'
+                        ->unique() // Obtener valores únicos
+                        ->count();
+                    // Log::debug("-----------------------------");
+                    // Log::debug($detalles_estado);
+                    // Log::debug($total_detalles);
+                    if ($value != 'EN PROCESO') {
+                        if ($total_detalles == $detalles_estado) {
+                            $total_registros++;
+                        }
+                    } else {
+                        if ($total_detalles == $detalles_estado) {
+                            $total_registros++;
+                        } else {
+                            if ($total_detalles > 1) {
+                                $total_registros++;
+                            }
+                        }
+                    }
+                } else {
+                    if ($value == 'NO INICIADO') {
+                        $total_registros++;
+                    }
+                }
+            }
+            $data[] = [
+                "name" => $value,
+                "y" => (float)$total_registros
+            ];
+        }
+
+
+        return response()->JSON([
+            "data" => $data,
+        ]);
     }
 }

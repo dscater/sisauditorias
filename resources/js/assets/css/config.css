@@ -35,6 +35,11 @@ html {
     overflow-y: overlay;
 }
 
+header.bg-principal {
+    background-color: var(--principal) !important;
+    color: white !important;
+}
+
 .ubicacion,
 iframe {
     width: 100%;
@@ -75,6 +80,15 @@ iframe {
     background-color: var(--transparente);
 }
 
+/* PORTAL */
+
+.menu_portal .v-toolbar-title__placeholder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* FIN PORTAL */
 
 /* DROP ZONE */
 .archivos_cargados .v-virtual-scroll__container {
@@ -86,10 +100,9 @@ iframe {
     flex-wrap: wrap;
 }
 
-.archivos_cargados .v-virtual-scroll__container .v-virtual-scroll__item{
-    max-width: 100%!important;
+.archivos_cargados .v-virtual-scroll__container .v-virtual-scroll__item {
+    max-width: 100% !important;
 }
-
 
 /* SIDEBAR */
 .__sidebar .active {

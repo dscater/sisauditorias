@@ -6,6 +6,7 @@ use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\PapelTrabajoController;
+use App\Http\Controllers\PortalController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ReporteController;
@@ -37,10 +38,10 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/', function () {
-
-    return Inertia::render('Inicio');
-});
+Route::get('/', [PortalController::class, 'inicio'])->name("portal.inicio");
+Route::get('/comunicacion', [PortalController::class, 'comunicacion'])->name("portal.comunicacion");
+Route::get('/transparencia', [PortalController::class, 'transparencia'])->name("portal.transparencia");
+Route::get('/contactos', [PortalController::class, 'contactos'])->name("portal.contactos");
 
 Route::get('/login', function () {
     if (Auth::check()) {
@@ -129,7 +130,7 @@ Route::middleware('auth')->group(function () {
     // REPORTES
     Route::get('reportes/usuarios', [ReporteController::class, 'usuarios'])->name("reportes.usuarios");
     Route::get('reportes/r_usuarios', [ReporteController::class, 'r_usuarios'])->name("reportes.r_usuarios");
-    
+
     Route::get('reportes/trabajo_auditorias', [ReporteController::class, 'trabajo_auditorias'])->name("reportes.trabajo_auditorias");
     Route::get('reportes/r_trabajo_auditorias', [ReporteController::class, 'r_trabajo_auditorias'])->name("reportes.r_trabajo_auditorias");
 

@@ -22,6 +22,22 @@ import { computed, onMounted, ref } from "vue";
 import { Head, usePage } from "@inertiajs/vue3";
 import { useTrabajoAuditorias } from "@/composables/trabajo_auditorias/useTrabajoAuditorias";
 import { useTipoTrabajos } from "@/composables/tipo_trabajos/useTipoTrabajos";
+import Highcharts from "highcharts";
+import exporting from "highcharts/modules/exporting";
+exporting(Highcharts);
+Highcharts.setOptions({
+    lang: {
+        downloadPNG: "Descargar PNG",
+        downloadJPEG: "Descargar JPEG",
+        downloadPDF: "Descargar PDF",
+        downloadSVG: "Descargar SVG",
+        printChart: "Imprimir gráfico",
+        contextButtonTitle: "Menú de exportación",
+        viewFullscreen: "Pantalla completa",
+        exitFullscreen: "Salir de pantalla completa",
+    },
+});
+
 const { setLoading } = useApp();
 const { getTrabajoAuditorias } = useTrabajoAuditorias();
 const { getTipoTrabajos } = useTipoTrabajos();
@@ -51,13 +67,72 @@ const txtBtn = computed(() => {
     return "Generar Reporte";
 });
 
-const generarReporte = () => {
+const generarReporte = async () => {
     generando.value = true;
-    const url = route("reportes.r_trabajo_auditorias", form.value);
-    window.open(url, "_blank");
-    setTimeout(() => {
-        generando.value = false;
-    }, 500);
+
+    axios
+        .get(route("reportes.r_g_trabajo_auditorias"), { params: form.value })
+        .then((response) => {
+            generando.value = false;
+            // Create the chart
+            Highcharts.chart("container", {
+                chart: {
+                    type: "column",
+                },
+                title: {
+                    align: "center",
+                    text: "Cantidad de Trabajos de Auditorías por Estados",
+                },
+                subtitle: {
+                    align: "left",
+                    text: "",
+                },
+                accessibility: {
+                    announceNewData: {
+                        enabled: true,
+                    },
+                },
+                xAxis: {
+                    type: "category",
+                },
+                yAxis: {
+                    title: {
+                        text: "Total",
+                    },
+                },
+                legend: {
+                    enabled: false,
+                },
+                plotOptions: {
+                    series: {
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            format: "{point.y:.0f}",
+                        },
+                    },
+                },
+
+                tooltip: {
+                    headerFormat:
+                        '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat:
+                        '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>',
+                },
+
+                series: [
+                    {
+                        name: "Cantidad",
+                        colorByPoint: true,
+                        data: response.data.data,
+                    },
+                ],
+            });
+        })
+        .catch((err) => {
+            generando.value = false;
+            console.log(err);
+        });
 };
 
 const cargarListas = async () => {
@@ -222,6 +297,9 @@ onMounted(() => {
                         </v-container>
                     </v-card-item>
                 </v-card>
+            </v-col>
+            <v-col cols="12">
+                <div id="container"></div>
             </v-col>
         </v-row>
     </v-container>
