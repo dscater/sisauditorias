@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-04-2024 a las 16:21:36
+-- Tiempo de generación: 19-04-2024 a las 18:09:34
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -187,7 +187,15 @@ INSERT INTO `historial_accions` (`id`, `user_id`, `accion`, `descripcion`, `dato
 (81, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO UN TIPO DE TRABAJOS DE AUDITORIA', 'id: 1<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-17<br/>created_at: 2024-04-17 15:02:29<br/>updated_at: 2024-04-17 15:02:29<br/>', NULL, 'TIPO DE TRABAJOS DE AUDITORIAS', '2024-04-17', '15:02:29', '2024-04-17 19:02:29', '2024-04-17 19:02:29'),
 (84, 1, 'CREACIÓN', 'EL USUARIO  REGISTRO PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', NULL, 'PAPELES DE TRABAJOS', '2024-04-18', '12:18:36', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
 (85, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-18', '12:19:42', '2024-04-18 16:19:42', '2024-04-18 16:19:42'),
-(86, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-18', '12:19:57', '2024-04-18 16:19:57', '2024-04-18 16:19:57');
+(86, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-18', '12:19:57', '2024-04-18 16:19:57', '2024-04-18 16:19:57'),
+(87, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-18', '12:30:47', '2024-04-18 16:30:47', '2024-04-18 16:30:47'),
+(88, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$gvX82w1VAp/qO2aHy/KDou93YMMKrikjID675524JNW10E/gxJ7Aa<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: AUDITOR<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-16 12:13:12<br/>', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$l/VgkFm.tJSL48ta7HnHEej6Wz3dC.KlZeSGCwvc6DSevBk6MMzpy<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: SUPERVISOR DE AUDITORÍA<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-19 10:49:17<br/>', 'USUARIOS', '2024-04-19', '10:49:17', '2024-04-19 14:49:17', '2024-04-19 14:49:17'),
+(89, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN LA CONTRASEÑA DE UN USUARIO', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$l/VgkFm.tJSL48ta7HnHEej6Wz3dC.KlZeSGCwvc6DSevBk6MMzpy<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: SUPERVISOR DE AUDITORÍA<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-19 10:49:17<br/>', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$3Jk83R87nct15aI3xIxAJuRYtJOKDWaOM2vUCsiy9.veUgTpaP.nS<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: SUPERVISOR DE AUDITORÍA<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-19 10:50:35<br/>', 'USUARIOS', '2024-04-19', '10:50:35', '2024-04-19 14:50:35', '2024-04-19 14:50:35'),
+(90, 4, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-19', '10:51:43', '2024-04-19 14:51:43', '2024-04-19 14:51:43'),
+(91, 3, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-19', '10:53:59', '2024-04-19 14:53:59', '2024-04-19 14:53:59'),
+(92, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-19', '11:44:32', '2024-04-19 15:44:32', '2024-04-19 15:44:32'),
+(93, 1, 'MODIFICACIÓN', 'EL USUARIO  MODIFICÓ PAPELES DE TRABAJO', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'id: 3<br/>trabajo_auditoria_id: 1<br/>fecha_registro: 2024-04-18<br/>created_at: 2024-04-18 12:18:36<br/>updated_at: 2024-04-18 12:18:36<br/>', 'PAPELES DE TRABAJOS', '2024-04-19', '11:53:09', '2024-04-19 15:53:09', '2024-04-19 15:53:09'),
+(94, 1, 'MODIFICACIÓN', 'EL USUARIO admin MODIFICÓ UN USUARIO', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$3Jk83R87nct15aI3xIxAJuRYtJOKDWaOM2vUCsiy9.veUgTpaP.nS<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: SUPERVISOR DE AUDITORÍA<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-19 10:50:35<br/>', 'id: 3<br/>usuario: MCORTEZ<br/>password: $2y$12$OLhxsavZtg38Y2f9Vou2we7NRq3lCQWvTPvOJM7j6xHcmqVv12R9e<br/>nombre: MARIO<br/>paterno: CORTEZ<br/>materno: <br/>ci: 2222<br/>ci_exp: LP<br/>sexo: HOMBRE<br/>nacionalidad: BOLIVIANO<br/>dir: LOS OLIVOS<br/>email: <br/>fono: 67676767<br/>profesion: PROFESION #2<br/>cargo: SU<br/>nivel: B<br/>tipo: AUDITOR<br/>foto: <br/>acceso: 1<br/>fecha_registro: 2024-04-16 00:00:00<br/>created_at: 2024-04-16 12:13:07<br/>updated_at: 2024-04-19 13:34:54<br/>', 'USUARIOS', '2024-04-19', '13:34:54', '2024-04-19 17:34:54', '2024-04-19 17:34:54');
 
 -- --------------------------------------------------------
 
@@ -324,9 +332,11 @@ CREATE TABLE `papel_archivos` (
 --
 
 INSERT INTO `papel_archivos` (`id`, `papel_detalle_id`, `archivo`, `ext`, `created_at`, `updated_at`) VALUES
-(1, 2, '1713457116_02.pdf', 'pdf', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
 (2, 2, '1713457116_12.pdf', 'pdf', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
-(3, 25, '1713457116_025.docx', 'docx', '2024-04-18 16:18:36', '2024-04-18 16:18:36');
+(3, 25, '1713457116_025.docx', 'docx', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
+(4, 2, '1713457847_12.docx', 'docx', '2024-04-18 16:30:47', '2024-04-18 16:30:47'),
+(5, 3, '1713457847_03.pdf', 'pdf', '2024-04-18 16:30:47', '2024-04-18 16:30:47'),
+(6, 2, '1713541472_22.jpg', 'jpg', '2024-04-19 15:44:32', '2024-04-19 15:44:32');
 
 -- --------------------------------------------------------
 
@@ -350,9 +360,9 @@ CREATE TABLE `papel_detalles` (
 --
 
 INSERT INTO `papel_detalles` (`id`, `papel_trabajo_id`, `nro_etapa`, `nro_nombre`, `aplicabilidad`, `estado`, `created_at`, `updated_at`) VALUES
-(2, 3, 1, 1, 'SI', 'EN PROCESO', '2024-04-18 16:18:36', '2024-04-18 16:19:42'),
+(2, 3, 1, 1, 'NO', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-19 15:53:09'),
 (3, 3, 1, 2, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
-(4, 3, 1, 3, 'NO', 'APROBADO GERENTE AUDITOR', '2024-04-18 16:18:36', '2024-04-18 16:19:57'),
+(4, 3, 1, 3, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-19 15:53:09'),
 (5, 3, 1, 4, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
 (6, 3, 1, 5, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
 (7, 3, 1, 6, 'SI', 'NO INICIADO', '2024-04-18 16:18:36', '2024-04-18 16:18:36'),
@@ -551,7 +561,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `usuario`, `password`, `nombre`, `paterno`, `materno`, `ci`, `ci_exp`, `sexo`, `nacionalidad`, `dir`, `email`, `fono`, `profesion`, `cargo`, `nivel`, `tipo`, `foto`, `acceso`, `fecha_registro`, `created_at`, `updated_at`) VALUES
 (1, 'admin', '$2y$12$tip597HRP5phPRM09dT/6OA2qgl3A8PoRzYswlhwiJ7SBCFhwS04i', 'admin', '', '', '0', '', '', '', '', 'admin@gmail.com', '', '', 'GERENTE', '', 'GERENTE AUDITOR', '', 1, '2024-04-08', '2024-04-08 21:10:09', '2024-04-08 21:10:09'),
 (2, 'JPERES', '$2y$12$JYf5tQfnyULpD0k49W5ejubQbDEFzY9V3ipapW4kCrCInSkaS9oGG', 'JUAN', 'PERES', 'MAMANI', '1111', 'LP', 'HOMBRE', 'BOLIVIANO', 'LOS OLIVOS', 'JUAN@GMAIL.COM', '77777777', 'PROFESION #1', 'GA', 'A', 'GERENTE AUDITOR', '1713283901_JPERES.jpg', 1, '2024-04-16', '2024-04-16 16:11:41', '2024-04-16 16:12:38'),
-(3, 'MCORTEZ', '$2y$12$gvX82w1VAp/qO2aHy/KDou93YMMKrikjID675524JNW10E/gxJ7Aa', 'MARIO', 'CORTEZ', '', '2222', 'LP', 'HOMBRE', 'BOLIVIANO', 'LOS OLIVOS', '', '67676767', 'PROFESION #2', 'SU', 'B', 'AUDITOR', NULL, 1, '2024-04-16', '2024-04-16 16:13:07', '2024-04-16 16:13:12'),
+(3, 'MCORTEZ', '$2y$12$OLhxsavZtg38Y2f9Vou2we7NRq3lCQWvTPvOJM7j6xHcmqVv12R9e', 'MARIO', 'CORTEZ', '', '2222', 'LP', 'HOMBRE', 'BOLIVIANO', 'LOS OLIVOS', '', '67676767', 'PROFESION #2', 'SU', 'B', 'AUDITOR', NULL, 1, '2024-04-16', '2024-04-16 16:13:07', '2024-04-19 17:34:54'),
 (4, 'MMAMANI', '$2y$12$3CvihElPmuNTt2puLSWaEeI9IUDOVB6s4Gfb8qUGJqYoUBzDKEEwW', 'MARIA', 'MAMANI', '', '3333', 'CB', 'MUJER', 'BOLIVIANA', 'LOS OLIVOS', 'MARIA@GMAIL.COM', '67676767', 'PROFESION #3', 'SU', 'B', 'AUDITOR', '1713284044_MMAMANI.jpg', 1, '2024-04-16', '2024-04-16 16:14:04', '2024-04-16 16:14:04');
 
 --
@@ -699,7 +709,7 @@ ALTER TABLE `etapa_nombres`
 -- AUTO_INCREMENT de la tabla `historial_accions`
 --
 ALTER TABLE `historial_accions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `institucions`
@@ -729,7 +739,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de la tabla `papel_archivos`
 --
 ALTER TABLE `papel_archivos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `papel_detalles`

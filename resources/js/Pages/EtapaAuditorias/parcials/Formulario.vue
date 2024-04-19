@@ -111,7 +111,7 @@ const detectaEliminados = (eliminados, nro_etapa, nro_nombre) => {
 onMounted(() => {
     if (form.id && form.id != "") {
         cargarListas(form.trabajo_auditoria_id);
-    }else{
+    } else {
         cargarListas();
     }
 });
@@ -200,7 +200,21 @@ onMounted(() => {
                                         required
                                         density="compact"
                                         v-model="form.trabajo_auditoria_id"
-                                    ></v-select>
+                                    >
+                                        <template v-slot:item="{ props, item }">
+                                            <v-list-item
+                                                v-bind="props"
+                                                :subtitle="item.raw.codigo"
+                                            ></v-list-item>
+                                        </template>
+                                        <template v-slot:selection="{ item }">
+                                            <span>{{ item.raw.nombre }}</span
+                                            >&nbsp;
+                                            <span class="text-caption"
+                                                >( {{ item.raw.codigo }})</span
+                                            >
+                                        </template>
+                                    </v-select>
                                 </v-col>
                             </v-row>
                             <v-row>

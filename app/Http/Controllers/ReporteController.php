@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Biometrico;
+use App\Models\PapelDetalle;
+use App\Models\PapelTrabajo;
 use App\Models\Servicio;
 use App\Models\SolicitudMantenimiento;
+use App\Models\TrabajoAuditoria;
 use App\Models\UnidadArea;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -45,99 +48,57 @@ class ReporteController extends Controller
         return $pdf->stream('Usuarios.pdf');
     }
 
-    public function solicitud_mantenimiento()
+    public function trabajo_auditorias()
     {
-        return Inertia::render("Reportes/SolicitudMantenimiento");
+        return Inertia::render("Reportes/TrabajoAuditorias");
     }
 
-    public function r_solicitud_mantenimiento(Request $request)
+    public function r_trabajo_auditorias(Request $request)
     {
-        $unidad_area_id =  $request->unidad_area_id;
-        $solicitud_mantenimiento_id =  $request->solicitud_mantenimiento_id;
-        $unidad_area = UnidadArea::find($unidad_area_id);
-        $solicitud_mantenimientos = SolicitudMantenimiento::where("id", $solicitud_mantenimiento_id)->get();
-        $pdf = PDF::loadView('reportes.solicitud_mantenimiento', compact('solicitud_mantenimientos', 'unidad_area'))->setPaper('letter', 'portrait');
+        $tipo_trabajo_id =  $request->tipo_trabajo_id;
+        $trabajo_id =  $request->trabajo_id;
+        $estado =  $request->estado;
+        $trabajo_auditorias = TrabajoAuditoria::select("trabajo_auditorias.*");
 
-        // ENUMERAR LAS PÁGINAS USANDO CANVAS
-        $pdf->output();
-        $dom_pdf = $pdf->getDomPDF();
-        $canvas = $dom_pdf->get_canvas();
-        $alto = $canvas->get_height();
-        $ancho = $canvas->get_width();
-        $canvas->page_text($ancho - 85, $alto - 35, date("d/m/Y"), null, 9, array(0, 0, 0));
-        $canvas->page_text($ancho - 90, $alto - 25, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, array(0, 0, 0));
 
-        return $pdf->stream('solicitud_mantenimiento.pdf');
-    }
-
-    public function servicio()
-    {
-        return Inertia::render("Reportes/Servicio");
-    }
-
-    public function r_servicio(Request $request)
-    {
-        $unidad_area_id =  $request->unidad_area_id;
-        $solicitud_mantenimiento_id =  $request->solicitud_mantenimiento_id;
-        $unidad_area = UnidadArea::find($unidad_area_id);
-        $servicios = Servicio::where("solicitud_mantenimiento_id", $solicitud_mantenimiento_id)->get();
-        $pdf = PDF::loadView('reportes.servicio', compact('servicios', 'unidad_area'))->setPaper('letter', 'portrait');
-
-        // ENUMERAR LAS PÁGINAS USANDO CANVAS
-        $pdf->output();
-        $dom_pdf = $pdf->getDomPDF();
-        $canvas = $dom_pdf->get_canvas();
-        $alto = $canvas->get_height();
-        $ancho = $canvas->get_width();
-        $canvas->page_text($ancho - 85, $alto - 35, date("d/m/Y"), null, 9, array(0, 0, 0));
-        $canvas->page_text($ancho - 90, $alto - 25, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, array(0, 0, 0));
-
-        return $pdf->stream('servicio.pdf');
-    }
-
-    public function equipos()
-    {
-        return Inertia::render("Reportes/Equipos");
-    }
-
-    public function r_equipos(Request $request)
-    {
-        $unidad_area_id =  $request->unidad_area_id;
-        $unidad_areas = [];
-        if ($unidad_area_id != 'todos') {
-            $unidad_areas = UnidadArea::where("id", $unidad_area_id)->get();
-        } else {
-            $unidad_areas = UnidadArea::all();
+        if ($tipo_trabajo_id != 'todos') {
+            $trabajo_auditorias->where("tipo_trabajo_id", $tipo_trabajo_id);
         }
-        $pdf = PDF::loadView('reportes.equipos', compact('unidad_areas'))->setPaper('letter', 'portrait');
 
-        // ENUMERAR LAS PÁGINAS USANDO CANVAS
-        $pdf->output();
-        $dom_pdf = $pdf->getDomPDF();
-        $canvas = $dom_pdf->get_canvas();
-        $alto = $canvas->get_height();
-        $ancho = $canvas->get_width();
-        $canvas->page_text($ancho - 85, $alto - 35, date("d/m/Y"), null, 9, array(0, 0, 0));
-        $canvas->page_text($ancho - 90, $alto - 25, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, array(0, 0, 0));
-
-        return $pdf->stream('equipos.pdf');
-    }
-
-    public function historial_mantenimientos()
-    {
-        return Inertia::render("Reportes/HistorialMantenimientos");
-    }
-
-    public function r_historial_mantenimientos(Request $request)
-    {
-        $biometrico_id =  $request->biometrico_id;
-        $biometricos = [];
-        if ($biometrico_id != 'todos') {
-            $biometricos = Biometrico::where("id", $biometrico_id)->get();
-        } else {
-            $biometricos = Biometrico::all();
+        if ($trabajo_id != 'todos') {
+            $trabajo_auditorias->where("id", $trabajo_id);
         }
-        $pdf = PDF::loadView('reportes.historial_mantenimientos', compact('biometricos'))->setPaper('legal', 'landscape');
+
+        if ($estado != 'todos') {
+            $trabajos = $trabajo_auditorias->get();
+            $trabajo_auditorias = [];
+
+            foreach ($trabajos as $item) {
+                // buscar si tiene papeles
+                $papel_trabajo = PapelTrabajo::where("trabajo_auditoria_id", $item->id)->get()->first();
+                if ($papel_trabajo) {
+                    $total_detalles = count($papel_trabajo->papel_detalles);
+                    $detalles_estado = PapelDetalle::where("papel_trabajo_id", $papel_trabajo->id)
+                        ->where("estado", $estado)
+                        ->get();
+                    if ($estado != 'EN PROCESO') {
+                        if ($total_detalles == count($detalles_estado)) {
+                            $trabajo_auditorias[] = $item;
+                        }
+                    } else {
+                        $trabajo_auditorias[] = $item;
+                    }
+                } else {
+                    if ($estado == 'EN PROCESO') {
+                        $trabajo_auditorias[] = $item;
+                    }
+                }
+            }
+        } else {
+            $trabajo_auditorias = $trabajo_auditorias->get();
+        }
+
+        $pdf = PDF::loadView('reportes.trabajo_auditorias', compact('trabajo_auditorias'))->setPaper('legal', 'portrait');
 
         // ENUMERAR LAS PÁGINAS USANDO CANVAS
         $pdf->output();
@@ -148,6 +109,18 @@ class ReporteController extends Controller
         $canvas->page_text($ancho - 85, $alto - 35, date("d/m/Y"), null, 9, array(0, 0, 0));
         $canvas->page_text($ancho - 90, $alto - 25, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 9, array(0, 0, 0));
 
-        return $pdf->stream('historial_mantenimientos.pdf');
+        return $pdf->stream('trabajo_auditorias.pdf');
+    }
+
+    public function g_trabajo_auditorias()
+    {
+        return Inertia::render("Reportes/GTrabajoAuditorias");
+    }
+
+    public function r_g_trabajo_auditorias(Request $request)
+    {
+        $tipo =  $request->tipo;
+
+        return response()->JSON([]);
     }
 }

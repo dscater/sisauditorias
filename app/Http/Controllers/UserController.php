@@ -63,6 +63,8 @@ class UserController extends Controller
             "papel_trabajos.destroy",
 
             "reportes.usuarios",
+            "reportes.trabajo_auditorias",
+            "reportes.g_trabajo_auditorias",
         ],
         "SUPERVISOR DE AUDITORÍA" => [
 
@@ -75,8 +77,18 @@ class UserController extends Controller
             "trabajo_auditorias.create",
             "trabajo_auditorias.edit",
             "trabajo_auditorias.destroy",
+            
+            "papel_trabajos.index",
+            "papel_trabajos.create",
+            "papel_trabajos.edit",
+            "papel_trabajos.destroy",
         ],
-        "AUDITOR" => [],
+        "AUDITOR" => [
+            "papel_trabajos.index",
+            "papel_trabajos.create",
+            "papel_trabajos.edit",
+            "papel_trabajos.destroy",
+        ],
     ];
 
 

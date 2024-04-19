@@ -6,19 +6,13 @@
         @drop.stop="handleDrop"
         @click="openFilePicker"
     >
-        <v-virtual-scroll
-            :height="
-                archivos_existentes.length > 0
-                    ? archivos_existentes.length >= 1 &&
-                      archivos_existentes.length <= 3
-                        ? 300
-                        : 500
-                    : 0
-            "
-            :items="archivos_existentes"
+        <div
+            :style="`max-height:${
+                archivos_existentes.length > 0 ? '200px;' : '0px;'
+            }`"
             class="archivos_cargados w-100"
         >
-            <template v-slot:default="{ item, index }">
+            <template v-for="(item, index) in archivos_existentes">
                 <div class="archivo">
                     <button
                         type="button"
@@ -27,18 +21,42 @@
                     >
                         <i class="mdi mdi-close"></i>
                     </button>
+                    <button
+                        v-if="item.id != 0"
+                        type="button"
+                        class="btn_descargar"
+                        @click.stop="descargarArchivo(item.url_archivo)"
+                    >
+                        <i class="mdi mdi-download"></i>
+                    </button>
+                    <span
+                        class="check"
+                        :class="[
+                            item.id != 0
+                                ? 'text-success'
+                                : 'text-grey-darken-1',
+                        ]"
+                        ><i
+                            class="mdi"
+                            :class="[
+                                item.id != 0
+                                    ? 'mdi-check-circle'
+                                    : 'mdi-upload-circle',
+                            ]"
+                        ></i
+                    ></span>
                     <div class="thumbail">
                         <img :src="item.url_file" alt="Icon" />
                     </div>
                     <div class="info_archivo">
-                        <div class="nombre">
+                        <p class="nombre">
                             {{ item.name }}
-                        </div>
+                        </p>
                     </div>
                 </div>
             </template>
-        </v-virtual-scroll>
-        <div class="contenedor_info">
+        </div>
+        <div class="contenedor_info mt-3">
             <div v-if="!dragging" class="msj_drag">
                 Arrastra y suelta archivos aquí o haz clic para seleccionar
                 archivos
@@ -104,11 +122,17 @@ export default {
                 this.nro_nombre
             );
         },
+        descargarArchivo(url) {
+            window.open(url, "_blank");
+        },
         handleDrop(event) {
             event.preventDefault();
             this.dragging = false;
             const files = event.dataTransfer.files;
-            this.handleFiles(files);
+            let self = this;
+            setTimeout(() => {
+                self.handleFiles(files);
+            }, 500);
         },
         handleFiles(eventOrFiles) {
             let files = [];
@@ -122,7 +146,6 @@ export default {
             let total_cargados =
                 parseInt(files.length) +
                 parseInt(this.archivos_existentes.length);
-            console.log(total_cargados);
             if (total_cargados <= this.maximo) {
                 for (let i = 0; i < files.length; i++) {
                     const file = files[i];
@@ -133,7 +156,7 @@ export default {
                 Swal.fire({
                     icon: "info",
                     title: "Error",
-                    text: `No es posible cargar mas de ${this.maximo} imagénes`,
+                    text: `No es posible cargar mas de ${this.maximo} archivos`,
                     confirmButtonColor: "#3085d6",
                     confirmButtonText: `Aceptar`,
                 });
@@ -192,7 +215,7 @@ export default {
 .dropzone {
     padding: 20px;
     width: 100%;
-    border: dotted 2px black;
+    border: dashed 2px black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -211,6 +234,7 @@ export default {
 }
 
 .dropzone .contenedor_info {
+    cursor: pointer;
     text-align: center;
     width: 100%;
 }
@@ -227,22 +251,21 @@ export default {
 }
 
 .archivos_cargados {
-    justify-content: center;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 15px;
-}
-
-.v-virtual-scroll__container {
-    width: 100%;
-    display: flex !important;
+    overflow: auto;
 }
 
 .archivos_cargados .archivo {
     position: relative;
     width: 200px;
-    padding: 20px;
+    max-width: 100%;
+    padding: 10px;
+    background-color: rgb(235, 235, 235);
+    border: solid 1px rgb(182, 182, 182);
 }
 
 .archivos_cargados .archivo .thumbail {
@@ -252,10 +275,11 @@ export default {
     text-align: center;
     width: 100%;
     overflow: hidden;
-    height: 180px;
+    height: 90px;
 }
 .archivos_cargados .archivo .thumbail img {
-    height: 180px;
+    margin-top: 19px;
+    height: 100%;
 }
 
 .archivos_cargados .archivo .info_archivo {
@@ -266,15 +290,52 @@ export default {
 }
 
 .archivos_cargados .archivo .btn_quitar {
+    padding: 3px 0px;
+    border-radius: 3px;
     position: absolute;
     margin: 0px;
-    top: 10px;
-    right: 20px;
+    top: 0px;
+    right: 0px;
     font-size: 1.3em;
+    transition: all 0.3s;
+    color: red;
 }
 
 .archivos_cargados .archivo .btn_quitar:hover {
     background-color: rgb(250, 210, 210);
     color: red;
+}
+
+.archivos_cargados .archivo .btn_descargar {
+    padding: 3px 0px;
+    border-radius: 3px;
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    right: 40px;
+    font-size: 1.3em;
+    transition: all 0.3s;
+    color: rgb(2, 146, 241);
+}
+
+.archivos_cargados .archivo .btn_descargar:hover {
+    background-color: rgb(2, 146, 241);
+    color: white;
+}
+
+.archivos_cargados .archivo .check {
+    padding: 3px 2px;
+    border-radius: 3px;
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    font-size: 1.3em;
+}
+
+p.nombre {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>

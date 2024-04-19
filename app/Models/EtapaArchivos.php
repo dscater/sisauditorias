@@ -19,7 +19,7 @@ class EtapaArchivos extends Model
 
     public function getUrlFileAttribute()
     {
-        $array_imgs = ["jpge", "jpeg", "png", "webp", "gif"];
+        $array_imgs = ["jpg", "jpeg", "png", "webp", "gif"];
         if (in_array($this->ext, $array_imgs)) {
             return asset("/files/" . $this->archivo);
         }

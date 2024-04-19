@@ -141,8 +141,8 @@
         }
 
         .bg-principal {
-            background: #ffee58;
-            color: black;
+            background: #a73f52;
+            color: white;
         }
 
         .txt_rojo {}
@@ -171,20 +171,24 @@
     <table border="1">
         <thead class="bg-principal">
             <tr>
-                <th width="3%">N°</th>
+                <th width="2%">N°</th>
                 <th width="5%">FOTO</th>
                 <th>USUARIO</th>
                 <th>PATERNO</th>
                 <th>MATERNO</th>
                 <th>NOMBRE(S)</th>
                 <th>C.I.</th>
+                <th>SEXO</th>
+                <th>NACIONALIDAD</th>
                 <th>DIRECCIÓN</th>
                 <th>CORREO</th>
                 <th>TELÉFONO/CELULAR</th>
-                <th>ITEM</th>
+                <th>PROFESIÓN</th>
+                <th width="3%">CARGO</th>
+                <th width="2%">NIVEL</th>
                 <th>TIPO</th>
                 <th>ACCESO</th>
-                <th width="9%">FECHA DE REGISTRO</th>
+                <th width="4%">FECHA DE REGISTRO</th>
             </tr>
         </thead>
         <tbody>
@@ -206,10 +210,14 @@
                     <td class="">{{ $user->materno }}</td>
                     <td class="">{{ $user->nombre }}</td>
                     <td class="">{{ $user->full_ci }}</td>
+                    <td class="">{{ $user->sexo }}</td>
+                    <td class="">{{ $user->nacionalidad }}</td>
                     <td class="">{{ $user->dir }}</td>
                     <td class="">{{ $user->email }}</td>
                     <td class="">{{ $user->fono }}</td>
-                    <td class="">{{ $user->item }}</td>
+                    <td class="">{{ $user->profesion }}</td>
+                    <td class="">{{ $user->cargo }}</td>
+                    <td class="">{{ $user->nivel }}</td>
                     <td class="">{{ $user->tipo }}</td>
                     <td class="centreado">{{ $user->acceso == 1 ? 'HABILITADO' : 'DENEGADO' }}</td>
                     <td class="centreado">{{ $user->fecha_registro_t }}</td>

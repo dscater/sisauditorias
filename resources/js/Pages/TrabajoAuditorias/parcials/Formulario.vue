@@ -445,7 +445,7 @@ onMounted(() => {
                                                 :hide-details="true"
                                                 clearable
                                                 variant="outlined"
-                                                label="Seleccionar Usuario*"
+                                                label="Seleccionar Personal*"
                                                 :items="listUsuariosAuditor"
                                                 item-value="id"
                                                 item-title="full_name"

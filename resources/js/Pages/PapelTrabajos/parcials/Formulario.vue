@@ -84,8 +84,49 @@ const detectaArchivos = (files, nro_etapa, nro_nombre) => {
 
 const detectaEliminados = (eliminados, nro_etapa, nro_nombre) => {
     form[`papel_detalles${nro_etapa}`][nro_nombre]["eliminados"] = [];
-    console.log(eliminados);
     form[`papel_detalles${nro_etapa}`][nro_nombre]["eliminados"] = eliminados;
+};
+
+const listEstados = ref([]);
+
+const getMuestraEstado = (estado, nro_etapa, nro_nombre) => {
+    let mostrar = false;
+    let value_bd =
+        oPapelTrabajo[`papel_detalles${nro_etapa}`][nro_nombre].estado;
+    console.log(oPapelTrabajo[`papel_detalles${nro_etapa}`][nro_nombre].estado);
+    switch (user.value.tipo) {
+        case "GERENTE AUDITOR":
+            if (
+                estado == "REVISADO POR SUPERVISOR" ||
+                value_bd == "REVISADO POR SUPERVISOR"
+            ) {
+                mostrar = true;
+            }
+            break;
+        case "SUPERVISOR DE AUDITORÍA":
+            if (
+                estado == "TERMINADO AUDITOR" ||
+                value_bd == "TERMINADO AUDITOR"
+            ) {
+                mostrar = true;
+            }
+            break;
+        case "AUDITOR":
+            if (
+                estado == "EN PROCESO" ||
+                value_bd == "EN PROCESO" ||
+                value_bd == "NO INICIADO"
+            ) {
+                mostrar = true;
+            }
+            break;
+    }
+
+    return mostrar;
+};
+
+const descargarArchivo = (url) => {
+    window.open(url, "_blank");
 };
 
 onMounted(() => {
@@ -93,6 +134,21 @@ onMounted(() => {
         cargarListas(form.trabajo_auditoria_id);
     } else {
         cargarListas();
+    }
+    switch (user.value.tipo) {
+        case "GERENTE AUDITOR":
+            listEstados.value = ["APROBADO GERENTE AUDITOR"];
+            break;
+        case "SUPERVISOR DE AUDITORÍA":
+            listEstados.value = ["REVISADO POR SUPERVISOR"];
+            break;
+        case "AUDITOR":
+            listEstados.value = [
+                "NO INICIADO",
+                "EN PROCESO",
+                "TERMINADO AUDITOR",
+            ];
+            break;
     }
 });
 </script>
@@ -178,7 +234,21 @@ onMounted(() => {
                                         required
                                         density="compact"
                                         v-model="form.trabajo_auditoria_id"
-                                    ></v-select>
+                                    >
+                                        <template v-slot:item="{ props, item }">
+                                            <v-list-item
+                                                v-bind="props"
+                                                :subtitle="item.raw.codigo"
+                                            ></v-list-item>
+                                        </template>
+                                        <template v-slot:selection="{ item }">
+                                            <span>{{ item.raw.nombre }}</span
+                                            >&nbsp;
+                                            <span class="text-caption"
+                                                >( {{ item.raw.codigo }})</span
+                                            >
+                                        </template></v-select
+                                    >
                                 </v-col>
                             </v-row>
                             <v-row>
@@ -195,7 +265,10 @@ onMounted(() => {
                                         ) in form.papel_detalles1"
                                     >
                                         <v-col cols="12">
-                                            <v-card class="elevation-1" variant="outlined">
+                                            <v-card
+                                                class="elevation-1"
+                                                variant="outlined"
+                                            >
                                                 <v-card-text>
                                                     <v-row>
                                                         <v-col
@@ -235,6 +308,15 @@ onMounted(() => {
                                                                 </v-col>
                                                                 <v-col
                                                                     cols="12"
+                                                                    v-if="
+                                                                        getMuestraEstado(
+                                                                            papel_detalle.estado,
+                                                                            1,
+                                                                            index_nombre
+                                                                        ) &&
+                                                                        papel_detalle.aplicabilidad ==
+                                                                            'SI'
+                                                                    "
                                                                 >
                                                                     <v-select
                                                                         :hide-details="
@@ -242,13 +324,10 @@ onMounted(() => {
                                                                         "
                                                                         density="compact"
                                                                         variant="outlined"
-                                                                        :items="[
-                                                                            'NO INICIADO',
-                                                                            'EN PROCESO',
-                                                                            'TERMINADO AUDITOR',
-                                                                            'REVISADO POR SUPERVISOR',
-                                                                            'APROBADO GERENTE AUDITOR',
-                                                                        ]"
+                                                                        :items="
+                                                                            listEstados
+                                                                        "
+                                                                        no-data-text="Sin resultados"
                                                                         label="Estado"
                                                                         v-model="
                                                                             papel_detalle.estado
@@ -260,9 +339,25 @@ onMounted(() => {
                                                                         class="text-caption font-weight-bold"
                                                                         >Actual:
                                                                         {{
-                                                                            papel_detalle.estado
+                                                                            oPapelTrabajo[
+                                                                                `papel_detalles${1}`
+                                                                            ][
+                                                                                index_nombre
+                                                                            ]
+                                                                                .estado
                                                                         }}</span
                                                                     >
+                                                                </v-col>
+                                                                <v-col
+                                                                    cols="12"
+                                                                    v-else
+                                                                >
+                                                                    <strong
+                                                                        >Estado:</strong
+                                                                    >
+                                                                    {{
+                                                                        papel_detalle.estado
+                                                                    }}
                                                                 </v-col>
                                                             </v-row>
                                                         </v-col>
@@ -270,6 +365,10 @@ onMounted(() => {
                                                             cols="12"
                                                             md="8"
                                                             xl="8"
+                                                            v-if="
+                                                                papel_detalle.aplicabilidad ==
+                                                                'SI'
+                                                            "
                                                         >
                                                             <MiDropZone
                                                                 :files="
@@ -286,6 +385,89 @@ onMounted(() => {
                                                                     detectaEliminados
                                                                 "
                                                             ></MiDropZone>
+                                                        </v-col>
+                                                        <v-col
+                                                            cols="12"
+                                                            md="8"
+                                                            xl="8"
+                                                            v-else
+                                                        >
+                                                            <div
+                                                                :style="`max-height:${
+                                                                    papel_detalle
+                                                                        .papel_archivos
+                                                                        .length >
+                                                                    0
+                                                                        ? '200px;'
+                                                                        : '0px;'
+                                                                }`"
+                                                                class="contenedor_archivos"
+                                                            >
+                                                                <div
+                                                                    class="archivo"
+                                                                    v-for="(
+                                                                        item_archivo,
+                                                                        index
+                                                                    ) in papel_detalle.papel_archivos"
+                                                                >
+                                                                    <button
+                                                                        v-if="
+                                                                            item_archivo.id !=
+                                                                            0
+                                                                        "
+                                                                        type="button"
+                                                                        class="btn_descargar"
+                                                                        @click.stop="
+                                                                            descargarArchivo(
+                                                                                item_archivo.url_archivo
+                                                                            )
+                                                                        "
+                                                                    >
+                                                                        <i
+                                                                            class="mdi mdi-download"
+                                                                        ></i>
+                                                                    </button>
+                                                                    <span
+                                                                        class="check"
+                                                                        :class="[
+                                                                            item_archivo.id !=
+                                                                            0
+                                                                                ? 'text-success'
+                                                                                : 'text-grey-darken-1',
+                                                                        ]"
+                                                                        ><i
+                                                                            class="mdi"
+                                                                            :class="[
+                                                                                item_archivo.id !=
+                                                                                0
+                                                                                    ? 'mdi-check-circle'
+                                                                                    : 'mdi-upload-circle',
+                                                                            ]"
+                                                                        ></i
+                                                                    ></span>
+                                                                    <div
+                                                                        class="thumbail"
+                                                                    >
+                                                                        <img
+                                                                            :src="
+                                                                                item_archivo.url_file
+                                                                            "
+                                                                            alt="Icon"
+                                                                        />
+                                                                    </div>
+                                                                    <div
+                                                                        class="info_archivo"
+                                                                    >
+                                                                        <p
+                                                                            class="nombre"
+                                                                        >
+                                                                            {{
+                                                                                item_archivo.name
+                                                                            }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </v-col>
                                                     </v-row>
                                                 </v-card-text>
@@ -308,7 +490,10 @@ onMounted(() => {
                                         ) in form.papel_detalles2"
                                     >
                                         <v-col cols="12">
-                                            <v-card class="elevation-1" variant="outlined">
+                                            <v-card
+                                                class="elevation-1"
+                                                variant="outlined"
+                                            >
                                                 <v-card-text>
                                                     <v-row>
                                                         <v-col
@@ -348,6 +533,15 @@ onMounted(() => {
                                                                 </v-col>
                                                                 <v-col
                                                                     cols="12"
+                                                                    v-if="
+                                                                        getMuestraEstado(
+                                                                            papel_detalle.estado,
+                                                                            2,
+                                                                            index_nombre
+                                                                        ) &&
+                                                                        papel_detalle.aplicabilidad ==
+                                                                            'SI'
+                                                                    "
                                                                 >
                                                                     <v-select
                                                                         :hide-details="
@@ -355,13 +549,10 @@ onMounted(() => {
                                                                         "
                                                                         density="compact"
                                                                         variant="outlined"
-                                                                        :items="[
-                                                                            'NO INICIADO',
-                                                                            'EN PROCESO',
-                                                                            'TERMINADO AUDITOR',
-                                                                            'REVISADO POR SUPERVISOR',
-                                                                            'APROBADO GERENTE AUDITOR',
-                                                                        ]"
+                                                                        :items="
+                                                                            listEstados
+                                                                        "
+                                                                        no-data-text="Sin resultados"
                                                                         label="Estado"
                                                                         v-model="
                                                                             papel_detalle.estado
@@ -373,9 +564,26 @@ onMounted(() => {
                                                                         class="text-caption font-weight-bold"
                                                                         >Actual:
                                                                         {{
-                                                                            papel_detalle.estado
+                                                                            oPapelTrabajo[
+                                                                                `papel_detalles${2}`
+                                                                            ][
+                                                                                index_nombre
+                                                                            ]
+                                                                                .estado
                                                                         }}</span
                                                                     >
+                                                                </v-col>
+
+                                                                <v-col
+                                                                    cols="12"
+                                                                    v-else
+                                                                >
+                                                                    <strong
+                                                                        >Estado:</strong
+                                                                    >
+                                                                    {{
+                                                                        papel_detalle.estado
+                                                                    }}
                                                                 </v-col>
                                                             </v-row>
                                                         </v-col>
@@ -383,6 +591,10 @@ onMounted(() => {
                                                             cols="12"
                                                             md="8"
                                                             xl="8"
+                                                            v-if="
+                                                                papel_detalle.aplicabilidad ==
+                                                                'SI'
+                                                            "
                                                         >
                                                             <MiDropZone
                                                                 :files="
@@ -456,5 +668,79 @@ button.eliminar_nombre {
     color: white;
     padding: 3px 7px;
     border-radius: 4px;
+}
+
+.contenedor_archivos {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    overflow: auto;
+    border: solid 1px gray;
+    padding: 10px;
+}
+
+.contenedor_archivos .archivo {
+    position: relative;
+    width: 200px;
+    max-width: 100%;
+    padding: 10px;
+    background-color: rgb(235, 235, 235);
+    border: solid 1px rgb(182, 182, 182);
+}
+
+.contenedor_archivos .archivo .thumbail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    height: 90px;
+}
+.contenedor_archivos .archivo .thumbail img {
+    margin-top: 19px;
+    height: 100%;
+}
+
+.contenedor_archivos .archivo .info_archivo {
+    width: 100%;
+}
+.contenedor_archivos .archivo .info_archivo .nombre {
+    font-size: 0.9em;
+}
+
+.contenedor_archivos .archivo .btn_descargar {
+    padding: 3px 5px;
+    border-radius: 3px;
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    right: 0px;
+    font-size: 1.3em;
+    transition: all 0.3s;
+    color: rgb(2, 146, 241);
+}
+
+.contenedor_archivos .archivo .btn_descargar:hover {
+    background-color: rgb(2, 146, 241);
+    color: white;
+}
+
+.contenedor_archivos .archivo .check {
+    padding: 3px 2px;
+    border-radius: 3px;
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    font-size: 1.3em;
+}
+
+p.nombre {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>

@@ -129,6 +129,12 @@ Route::middleware('auth')->group(function () {
     // REPORTES
     Route::get('reportes/usuarios', [ReporteController::class, 'usuarios'])->name("reportes.usuarios");
     Route::get('reportes/r_usuarios', [ReporteController::class, 'r_usuarios'])->name("reportes.r_usuarios");
+    
+    Route::get('reportes/trabajo_auditorias', [ReporteController::class, 'trabajo_auditorias'])->name("reportes.trabajo_auditorias");
+    Route::get('reportes/r_trabajo_auditorias', [ReporteController::class, 'r_trabajo_auditorias'])->name("reportes.r_trabajo_auditorias");
+
+    Route::get('reportes/g_trabajo_auditorias', [ReporteController::class, 'g_trabajo_auditorias'])->name("reportes.g_trabajo_auditorias");
+    Route::get('reportes/r_g_trabajo_auditorias', [ReporteController::class, 'r_g_trabajo_auditorias'])->name("reportes.r_g_trabajo_auditorias");
 });
 
 require __DIR__ . '/auth.php';

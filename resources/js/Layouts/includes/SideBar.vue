@@ -23,6 +23,8 @@ const user_logeado = ref({
 
 const submenus = {
     "reportes.usuarios": "Reportes",
+    "reportes.trabajo_auditorias": "Reportes",
+    "reportes.g_trabajo_auditorias": "Reportes",
     "institucions.index": "Institucion",
     "publicacions.index": "Institucion",
     "noticias.index": "Institucion",
@@ -246,7 +248,8 @@ const scrollActive = () => {
                 class="text-caption"
                 v-if="
                     oUser.permisos.includes('reportes.usuarios') ||
-                    oUser.permisos.includes('reportes.servicio')
+                    oUser.permisos.includes('reportes.trabajo_auditorias')||
+                    oUser.permisos.includes('reportes.g_trabajo_auditorias')
                 "
                 ><span v-if="rail && !mobile" class="text-center d-block"
                     ><v-icon>mdi-dots-horizontal</v-icon></span
@@ -258,8 +261,8 @@ const scrollActive = () => {
                 value="Reportes"
                 v-if="
                     oUser.permisos.includes('reportes.usuarios') ||
-                    oUser.permisos.includes('reportes.servicio') ||
-                    oUser.permisos.includes('reportes.equipos')
+                    oUser.permisos.includes('reportes.trabajo_auditorias') ||
+                    oUser.permisos.includes('reportes.g_trabajo_auditorias')
                 "
             >
                 <template v-slot:activator="{ props }">
@@ -271,8 +274,8 @@ const scrollActive = () => {
                             route_current == 'reportes.usuarios' ||
                             route_current ==
                                 'reportes.solicitud_mantenimiento' ||
-                            route_current == 'reportes.servicio' ||
-                            route_current == 'reportes.equipos'
+                            route_current == 'reportes.trabajo_auditorias' ||
+                            route_current == 'reportes.g_trabajo_auditorias'
                                 ? 'active'
                                 : '',
                         ]"
@@ -302,6 +305,42 @@ const scrollActive = () => {
                         activator="parent"
                         location="end"
                         >Usuarios</v-tooltip
+                    ></v-list-item
+                >
+                <v-list-item
+                    v-if="oUser.permisos.includes('reportes.trabajo_auditorias')"
+                    prepend-icon="mdi-chevron-right"
+                    title="Trabajos de Auditoría"
+                    :class="[
+                        route_current == 'reportes.trabajo_auditorias' ? 'active' : '',
+                    ]"
+                    @click="cambiarUrl(route('reportes.trabajo_auditorias'))"
+                    link
+                >
+                    <v-tooltip
+                        v-if="rail && !mobile"
+                        color="white"
+                        activator="parent"
+                        location="end"
+                        >Trabajos de Auditoría</v-tooltip
+                    ></v-list-item
+                >
+                <v-list-item
+                    v-if="oUser.permisos.includes('reportes.g_trabajo_auditorias')"
+                    prepend-icon="mdi-chevron-right"
+                    title="Estados y Cantidad de Trabajos de Auditoría"
+                    :class="[
+                        route_current == 'reportes.g_trabajo_auditorias' ? 'active' : '',
+                    ]"
+                    @click="cambiarUrl(route('reportes.g_trabajo_auditorias'))"
+                    link
+                >
+                    <v-tooltip
+                        v-if="rail && !mobile"
+                        color="white"
+                        activator="parent"
+                        location="end"
+                        >Estados y Cantidad de Trabajos de Auditoría</v-tooltip
                     ></v-list-item
                 >
             </v-list-group>

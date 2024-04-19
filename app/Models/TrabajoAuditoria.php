@@ -60,4 +60,14 @@ class TrabajoAuditoria extends Model
     {
         return $this->hasMany(PersonalTrabajo::class, 'trabajo_auditoria_id');
     }
+
+    public function etapa_auditoria()
+    {
+        return $this->hasOne(EtapaAuditoria::class, 'trabajo_auditoria_id');
+    }
+
+    public function papel_trabajo()
+    {
+        return $this->hasOne(PapelTrabajo::class, 'trabajo_auditoria_id');
+    }
 }

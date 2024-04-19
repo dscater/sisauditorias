@@ -75,6 +75,22 @@ iframe {
     background-color: var(--transparente);
 }
 
+
+/* DROP ZONE */
+.archivos_cargados .v-virtual-scroll__container {
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.archivos_cargados .v-virtual-scroll__container .v-virtual-scroll__item{
+    max-width: 100%!important;
+}
+
+
 /* SIDEBAR */
 .__sidebar .active {
     border-radius: 8px;
