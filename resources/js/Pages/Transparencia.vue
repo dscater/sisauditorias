@@ -60,7 +60,7 @@ onMounted(() => {
                             <v-col cols="12">
                                 <p
                                     class="text-caption text-justify text-capitalize text-capitalize"
-                                    v-text="oInstitucion.mision"
+                                    v-text="oInstitucion.administracion"
                                 ></p>
                             </v-col>
                         </v-row>
@@ -77,7 +77,7 @@ onMounted(() => {
                             <v-col cols="12">
                                 <p
                                     class="text-caption text-justify text-capitalize text-capitalize"
-                                    v-text="oInstitucion.vision"
+                                    v-text="oInstitucion.codigo_etica"
                                 ></p>
                             </v-col>
                         </v-row>
@@ -94,7 +94,7 @@ onMounted(() => {
                             <v-col cols="12">
                                 <p
                                     class="text-caption text-justify text-capitalize text-capitalize"
-                                    v-text="oInstitucion.principios"
+                                    v-text="oInstitucion.informacion_financiera"
                                 ></p>
                             </v-col>
                         </v-row>
