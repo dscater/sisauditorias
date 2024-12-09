@@ -34,7 +34,18 @@ class Institucion extends Model
         "iniciales_nombre",
         "url_logo",
         "url_img_organigrama",
+        "logo_b64",
     ];
+
+
+    public function getLogoB64Attribute()
+    {
+        $path = public_path("imgs/" . $this->logo);
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $base64;
+    }
 
     public function getInicialesNombreAttribute()
     {

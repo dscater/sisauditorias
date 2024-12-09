@@ -190,10 +190,7 @@
     @foreach ($trabajo_auditorias as $trabajo_auditoria)
         <div class="encabezado">
             <div class="logo">
-                <img src="{{ $institucion->first()->url_logo }}">
-            </div>
-            <div class="logo2">
-                <img src="{{ $institucion->first()->url_logo2 }}">
+                <img src="{{ $institucion->first()->logo_b64 }}">
             </div>
             <h2 class="titulo">
                 {{ $institucion->first()->institucion }}
@@ -206,7 +203,7 @@
                     <td class="bold derecha" width="20%">Nombre de Auditoría:</td>
                     <td>{{ $trabajo_auditoria->nombre }}</td>
                     <td class="bold derecha" width="20%">Código de Control:</td>
-                    <td>{{ $trabajo_auditoria->nombre }}</td>
+                    <td>{{ $trabajo_auditoria->codigo }}</td>
                 </tr>
                 <tr>
                     <td class="bold derecha">Tipo de Trabajo de Auditoría:</td>

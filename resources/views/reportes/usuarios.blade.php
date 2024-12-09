@@ -157,10 +157,7 @@
     @inject('institucion', 'App\Models\Institucion')
     <div class="encabezado">
         <div class="logo">
-            <img src="{{ $institucion->first()->url_logo }}">
-        </div>
-        <div class="logo2">
-            <img src="{{ $institucion->first()->url_logo2 }}">
+            <img src="{{ $institucion->first()->logo_b64 }}">
         </div>
         <h2 class="titulo">
             {{ $institucion->first()->nombre }}

@@ -66,7 +66,7 @@ onMounted(() => {
                     <v-col cols="12" md="4">
                         <p>
                             <strong>Horarios de Atención: </strong
-                            >{{ oInstitucion.horarios }}
+                            >{{ oInstitucion.horario }}
                         </p>
                     </v-col>
                     <v-col cols="12" md="4">

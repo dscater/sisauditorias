@@ -142,7 +142,7 @@ class UserController extends Controller
                 'label' => 'Usuarios',
                 'cantidad' => count(User::where('id', '!=', 1)->get()),
                 'color' => 'bg-principal',
-                'icon' => asset("imgs/USUARIOS.png"),
+                'icon' => asset("imgs/USUARIOS.png") . '?t=' . time(),
                 "url" => "usuarios.index"
             ];
         }
@@ -152,7 +152,7 @@ class UserController extends Controller
                 'label' => 'Tipo de Trabajos de Auditoría',
                 'cantidad' => $tipo_trabajos,
                 'color' => 'bg-principal',
-                'icon' => asset("imgs/TIPOS_DE_TRABAJOS_DE_AUDITORÍA.png"),
+                'icon' => asset("imgs/TIPOSDETRABAJOSDEAUDITORIA.png") . '?t=' . time(),
                 "url" => "tipo_trabajos.index"
             ];
         }
@@ -162,7 +162,7 @@ class UserController extends Controller
                 'label' => 'Trabajos de Auditoría',
                 'cantidad' => $trabajo_auditorias,
                 'color' => 'bg-principal',
-                'icon' => asset("imgs/TRABAJOS_DE_AUDOTORÍA.png"),
+                'icon' => asset("imgs/TRABAJOSDEAUDOTORIA.png") . '?t=' . time(),
                 "url" => "trabajo_auditorias.index"
             ];
         }
@@ -172,7 +172,7 @@ class UserController extends Controller
                 'label' => 'Etapas de Auditoría',
                 'cantidad' => $etapa_auditorias,
                 'color' => 'bg-principal',
-                'icon' => asset("imgs/ETAPAS_DE_AUDITORÍA.png"),
+                'icon' => asset("imgs/ETAPASDEAUDITORIA.png") . '?t=' . time(),
                 "url" => "etapa_auditorias.index"
             ];
         }
@@ -182,7 +182,7 @@ class UserController extends Controller
                 'label' => 'Papeles de Trabajo',
                 'cantidad' => $papel_trabajos,
                 'color' => 'bg-principal',
-                'icon' => asset("imgs/PAPELES_DE_TRABAJO.png"),
+                'icon' => asset("imgs/PAPELESDETRABAJO.png") . '?t=' . time(),
                 "url" => "papel_trabajos.index"
             ];
         }
